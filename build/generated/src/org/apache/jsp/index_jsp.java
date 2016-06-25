@@ -55,6 +55,8 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <title>GameBuy首頁</title>\n");
       out.write("        <meta charset=\"UTF-8\">\n");
       out.write("        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n");
+      out.write("        <link rel=\"shortcut icon\" href=\"images/icon.ico\"/>\n");
+      out.write("        <link rel=\"bookmark\" href=\"images/icon.ico\"/>\n");
       out.write("        <link href=\"css/reset.css\" rel=\"stylesheet\" type=\"text/css\"/>\n");
       out.write("        <link href=\"css/index.css\" rel=\"stylesheet\" type=\"text/css\"/>\n");
       out.write("        <script src=\"js/jquery.js\" type=\"text/javascript\"></script>\n");

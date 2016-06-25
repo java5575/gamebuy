@@ -13,10 +13,23 @@ public final class update_jsp extends org.apache.jasper.runtime.HttpJspBase
 
   private static java.util.List<String> _jspx_dependants;
 
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_forEach_var_items;
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_if_test;
+
   private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
 
   public java.util.List<String> getDependants() {
     return _jspx_dependants;
+  }
+
+  public void _jspInit() {
+    _jspx_tagPool_c_forEach_var_items = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+    _jspx_tagPool_c_if_test = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+  }
+
+  public void _jspDestroy() {
+    _jspx_tagPool_c_forEach_var_items.release();
+    _jspx_tagPool_c_if_test.release();
   }
 
   public void _jspService(HttpServletRequest request, HttpServletResponse response)
@@ -75,62 +88,9 @@ public final class update_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <script src=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("/jquery-ui-1.11.4.custom/jquery-ui.js\"></script>\n");
-      out.write("        <style>\n");
-      out.write("            *{\n");
-      out.write("                margin: 0px;\n");
-      out.write("                padding: 0px;\n");
-      out.write("            }\n");
-      out.write("\n");
-      out.write("            #wrapper{\n");
-      out.write("                top:50px;\n");
-      out.write("                position: relative;\n");
-      out.write("                border:1px solid;\n");
-      out.write("                border-radius: 50px;\n");
-      out.write("                width: 400px;\n");
-      out.write("                margin: 0px auto;      \n");
-      out.write("                text-align: center;\n");
-      out.write("                padding: 20px 0px;\n");
-      out.write("                box-shadow:10px 10px 10px rgba(20%,20%,40%,0.5);\n");
-      out.write("/*                animation: example 2s 1 cubic-bezier(0.680, -0.550, 0.265, 1.550) alternate;*/\n");
-      out.write("\n");
-      out.write("            }\n");
-      out.write("            h1{\n");
-      out.write("                border-top-left-radius: 20px;\n");
-      out.write("                border-top-right-radius: 20px;\n");
-      out.write("                width: 400px;\n");
-      out.write("                height: 40px;\n");
-      out.write("                background-color: black;\n");
-      out.write("                color: white;\n");
-      out.write("                margin-bottom: 40px;\n");
-      out.write("\n");
-      out.write("            }\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("/*            @keyframes example{\n");
-      out.write("                from{top:-800px;}\n");
-      out.write("                to{top:50px}\n");
-      out.write("            }*/\n");
-      out.write("\n");
-      out.write("            p{\n");
-      out.write("                margin-bottom: 20px;\n");
-      out.write("\n");
-      out.write("            }\n");
-      out.write("            .button{\n");
-      out.write("                \n");
-      out.write("                \n");
-      out.write("                width: 100px;\n");
-      out.write("                height: 32px;\n");
-      out.write("/*                background: url(../images/register.png);*/\n");
-      out.write("\n");
-      out.write("            }\n");
-      out.write("            p input{\n");
-      out.write("                border: 1px black solid;\n");
-      out.write("\n");
-      out.write("            }\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("        </style>\n");
+      out.write("        <link href=\"../css/update.css\" rel=\"stylesheet\" type=\"text/css\"/>\n");
       out.write("        <script>\n");
+      out.write("\n");
       out.write("            $(function () {\n");
       out.write("                $(\"#datepicker\").datepicker({\n");
       out.write("                    dateFormat: \"yy/mm/dd\",\n");
@@ -149,11 +109,11 @@ public final class update_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <p><a href=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("\">首頁</a>| \n");
-      out.write("               ");
+      out.write("            ");
 
-                    if (customer == null) {
+                if (customer == null) {
 
-                
+            
       out.write("\n");
       out.write("            <a href=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
@@ -170,10 +130,10 @@ public final class update_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            <a href=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("/user/update.jsp\">修改會員資料</a>\n");
-      out.write("             ");
+      out.write("            ");
 }
       out.write("\n");
-      out.write("             <span>");
+      out.write("            <span>");
       out.print( customer != null ? customer.getName() + "你好" : "");
       out.write("</span>\n");
       out.write("        </p>\n");
@@ -260,6 +220,9 @@ for (String msg : errors) {
       out.write("\n");
       out.write("                <input type=\"submit\" class=\"button\" value=\"修改\">\n");
       out.write("            </form>\n");
+      out.write("            ");
+      if (_jspx_meth_c_if_0(_jspx_page_context))
+        return;
       out.write("\n");
       out.write("\n");
       out.write("\n");
@@ -278,5 +241,77 @@ for (String msg : errors) {
     } finally {
       _jspxFactory.releasePageContext(_jspx_page_context);
     }
+  }
+
+  private boolean _jspx_meth_c_if_0(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:if
+    org.apache.taglibs.standard.tag.rt.core.IfTag _jspx_th_c_if_0 = (org.apache.taglibs.standard.tag.rt.core.IfTag) _jspx_tagPool_c_if_test.get(org.apache.taglibs.standard.tag.rt.core.IfTag.class);
+    _jspx_th_c_if_0.setPageContext(_jspx_page_context);
+    _jspx_th_c_if_0.setParent(null);
+    _jspx_th_c_if_0.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${not empty requestScope.errors}", java.lang.Boolean.class, (PageContext)_jspx_page_context, null)).booleanValue());
+    int _jspx_eval_c_if_0 = _jspx_th_c_if_0.doStartTag();
+    if (_jspx_eval_c_if_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+      do {
+        out.write("\n");
+        out.write("                <ul>\n");
+        out.write("                    ");
+        if (_jspx_meth_c_forEach_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_if_0, _jspx_page_context))
+          return true;
+        out.write("\n");
+        out.write("                </ul>\n");
+        out.write("            ");
+        int evalDoAfterBody = _jspx_th_c_if_0.doAfterBody();
+        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+          break;
+      } while (true);
+    }
+    if (_jspx_th_c_if_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_c_if_test.reuse(_jspx_th_c_if_0);
+      return true;
+    }
+    _jspx_tagPool_c_if_test.reuse(_jspx_th_c_if_0);
+    return false;
+  }
+
+  private boolean _jspx_meth_c_forEach_0(javax.servlet.jsp.tagext.JspTag _jspx_th_c_if_0, PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:forEach
+    org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_forEach_0 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _jspx_tagPool_c_forEach_var_items.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
+    _jspx_th_c_forEach_0.setPageContext(_jspx_page_context);
+    _jspx_th_c_forEach_0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_if_0);
+    _jspx_th_c_forEach_0.setVar("msg");
+    _jspx_th_c_forEach_0.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${requestScope.errors}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
+    int[] _jspx_push_body_count_c_forEach_0 = new int[] { 0 };
+    try {
+      int _jspx_eval_c_forEach_0 = _jspx_th_c_forEach_0.doStartTag();
+      if (_jspx_eval_c_forEach_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+        do {
+          out.write("\n");
+          out.write("                        <li>");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${msg}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("</li> \n");
+          out.write("                        ");
+          int evalDoAfterBody = _jspx_th_c_forEach_0.doAfterBody();
+          if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+            break;
+        } while (true);
+      }
+      if (_jspx_th_c_forEach_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+        return true;
+      }
+    } catch (Throwable _jspx_exception) {
+      while (_jspx_push_body_count_c_forEach_0[0]-- > 0)
+        out = _jspx_page_context.popBody();
+      _jspx_th_c_forEach_0.doCatch(_jspx_exception);
+    } finally {
+      _jspx_th_c_forEach_0.doFinally();
+      _jspx_tagPool_c_forEach_var_items.reuse(_jspx_th_c_forEach_0);
+    }
+    return false;
   }
 }

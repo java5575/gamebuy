@@ -11,6 +11,8 @@ and open the template in the editor.
         <title>GameBuy首頁</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="images/icon.ico"/>
+        <link rel="bookmark" href="images/icon.ico"/>
         <link href="css/reset.css" rel="stylesheet" type="text/css"/>
         <link href="css/index.css" rel="stylesheet" type="text/css"/>
         <script src="js/jquery.js" type="text/javascript"></script>
@@ -21,6 +23,7 @@ and open the template in the editor.
         </style>
     </head>
     <body>
+
         <div class="wrapper">
             <div class="header">
                 <a href="index.jsp"><img class="logo" src="images/logo2.png" alt=""/></a>
@@ -29,24 +32,23 @@ and open the template in the editor.
                         if (customer == null) {
 
                     %>
-                    
+
                     <a href="${pageContext.request.contextPath}/login.jsp">登入</a>|
                     <a href="${pageContext.request.contextPath}/register.jsp">註冊</a>
                     <%} else {%>
                     <a href="#"><img src="images/shoppingcar.png"/></a>
                     <a href="${pageContext.request.contextPath}/user/update.jsp">修改會員資料</a>|
                     <a href="${pageContext.request.contextPath}/logout.do">登出</a>
-                     <span><%= customer != null ? customer.getName() + "你好" : ""%></span>
-                     
+                    <span><%= customer != null ? customer.getName() + "你好" : ""%></span>
+
                     <%}%>
-                   
+
                 </div>
                 <form>
                     <input type="search" placeholder="請輸入關鍵字"/>
                     <input type="submit" value="">
                 </form>
             </div>
-
             <div id="slide">
                 <ul>
                     <li><a href="#"><img src="images/slide_1.jpg" /></a></li>
@@ -86,14 +88,14 @@ and open the template in the editor.
                 </div>
 
             </div>
-                   <form id="subselect">
-                       <input type="radio" id="radio1" name="radio" />項目1
-                    <input type="radio" id="radio2" name="radio" />項目2
-                    <input type="radio" id="radio3" name="radio" />項目3
-                </form>
+            <form id="subselect">
+                <input type="radio" id="radio1" name="radio" />項目1
+                <input type="radio" id="radio2" name="radio" />項目2
+                <input type="radio" id="radio3" name="radio" />項目3
+            </form>
 
         </div>
-     <div class="footer">
+        <div class="footer">
             <p>Copy right by Caesar wang</p>
         </div>
     </body>

@@ -8,6 +8,8 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="css/reset.css" rel="stylesheet" type="text/css"/>
         <link href="css/login.css" rel="stylesheet" type="text/css"/>
+                <link rel="shortcut icon" href="images/icon.ico"/>
+        <link rel="bookmark" href="images/icon.ico"/>
         <title>會員登入</title>
         <script>
             function refreshHandler() {
@@ -33,16 +35,13 @@
                     <a href="${pageContext.request.contextPath}/user/update.jsp">修改會員資料</a>|
                     <a href="${pageContext.request.contextPath}/logout.do">登出</a>
                     <span><%= customer != null ? customer.getName() + "你好" : ""%></span>
-
                     <%}%>
-
                 </div>
-
             </div>
             <div id="middle">
                 <form method="POST" action="login.do">
                     <h1>會員登入</h1>
-      
+
                     <p>
                         <label>會員帳號：</label>
                         <input type="text" id="email" name="email" placeholder="請輸入你的email" value="${param.id}" required>

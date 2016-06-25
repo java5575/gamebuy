@@ -5,7 +5,6 @@ body{
     width: 850px;
     margin: 0 auto;
     position: relative;
-
 }
 
 /*header start*/
@@ -14,21 +13,17 @@ body{
     width: 850px;
     height: 50px;
     background-image: url("../images/headbg.png");
-
     top: 0;
     z-index: 999;
 }
 .logo{
     position: absolute;
-    width: 8%;
+    width: 12%;
     z-index: 2;
 }
 .memberlist{
-
     height: 50px;
     float: right;
-
-
 }
 .memberlist img{
     width: 50px;
@@ -41,8 +36,6 @@ body{
     font-weight: bold;
     line-height: 50px;
     margin:0 10px;
-
-
 }
 /*header end*/
 
@@ -56,13 +49,13 @@ body{
     padding: 20px 0px;
     box-shadow:10px 10px 10px rgba(20%,20%,40%,0.5);
     margin: 100px auto 20px auto;
+    position: relative;
     background-color: rgba(255,255,255,0.3);
-
+    animation: example 2s 1 cubic-bezier(0.680, -0.550, 0.265, 1.550) alternate;
 }
 #middle img{
     position: relative;
-    left: -10px;
-  
+    left: -20px;
 }
 h1{
     border-top-left-radius: 8px;
@@ -75,7 +68,6 @@ h1{
     line-height: 40px;
     font-size: 1.4em;
     font-weight: bold;
-
 }
 
 p{
@@ -88,7 +80,7 @@ p{
     border-radius: 10px;
     background-color: #ff8800;
     box-shadow: 1px 1px 1px #000000;
- 
+
 }
 p input[type="text"],p input[type="password"]{
     border: 1px black solid;
@@ -106,18 +98,23 @@ p input[type="text"],p input[type="password"]{
     position: relative;
     left: -5px;
 }
+
+@keyframes example{
+    from{top:-500px;}
+    to{top:0px}
+}
+
+#middle ul li{
+    list-style: none;
+}
 /*middle end*/
 .footer{
     width: 850px;
-    position: relative;
-    
+    position: relative;  
     color: #000000;
     line-height: 50px;
     text-align: center;
-
     height: 50px;
     bottom: 0;
-    margin: 0px auto;
-   
-   
+    margin: 0px auto;  
 }
