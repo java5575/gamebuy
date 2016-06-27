@@ -20,10 +20,10 @@
             }
             .wrapper{
                 position: relative;
-                width: 1280px;
+                width: 1199px;
                 height: 960px;
                 margin: 0 auto;
-                background-color: red;
+      
             }
             .wrapper h1{
                display: block;
@@ -31,7 +31,7 @@
                z-index: 99999;
                width: 1280px;
                color: #ffffff;
-               bottom: 100px;
+               bottom: 200px;
                text-align: center;
                font-size: 40px;
         
@@ -45,10 +45,14 @@
             }
         </style>
     </head>
+    <body>
         <div class="wrapper">
             <h1>
                 ${requestScope.customer.name}，恭喜您註冊成功了<a href="index.jsp">點此回到首頁</a>
             </h1>
             <img src="images/registerok.jpg">
         </div>
+            <audio src="audio/1428.mp3" autoplay>
+            </audio>
+    </body>
 </html>
