@@ -192,10 +192,62 @@ and open the template in the editor.
                     <%}%>
                 </div>
                 <div class="BOXS" id="BOX5"> 
-                    <p>BOX5</p>
-                </div>
+                    <%
+                        if (search != null && search.matches("\\d+")) {
+                            int id = Integer.parseInt(search);
+                            Product p = service.get(id);
+                            list = new ArrayList<>();
+                            list.add(p);
+                        } else if (search != null) {
+                            list = service.getByName(search);
+                        } else {
+                            list = service.getPlatForm(4);
+                        }
+                        if (list != null && list.size() > 0) {
+                    %>
+                    <ul>
+                        <%for (Product p : list) {%>
+                        <li 
+                            style='display: inline-block;width:250px;height:250px;overflow:auto;background-color: powderblue;box-shadow: 1px 1px 2px gray;padding: 2px;margin: 5px'>
+                            
+                            <a href="product.jsp?pid=<%=p.getId()%>">
+                                <img style='width: 150px' src='<%= p.getUrl()%>'>
+                            </a>
+                            <h3><%=p.getName()%></h3>
+                            <p>售價:<%= p.getUnitPrice()%></p>
+                        </li>
+                        <%}%>
+                    </ul>
+                    <%}%>
+                </div>                
                 <div class="BOXS" id="BOX6"> 
-                    <p>BOX6</p>
+                    <%
+                        if (search != null && search.matches("\\d+")) {
+                            int id = Integer.parseInt(search);
+                            Product p = service.get(id);
+                            list = new ArrayList<>();
+                            list.add(p);
+                        } else if (search != null) {
+                            list = service.getByName(search);
+                        } else {
+                            list = service.getPlatForm(5);
+                        }
+                        if (list != null && list.size() > 0) {
+                    %>
+                    <ul>
+                        <%for (Product p : list) {%>
+                        <li 
+                            style='display: inline-block;width:250px;height:250px;overflow:auto;background-color: powderblue;box-shadow: 1px 1px 2px gray;padding: 2px;margin: 5px'>
+                            
+                            <a href="product.jsp?pid=<%=p.getId()%>">
+                                <img style='width: 150px' src='<%= p.getUrl()%>'>
+                            </a>
+                            <h3><%=p.getName()%></h3>
+                            <p>售價:<%= p.getUnitPrice()%></p>
+                        </li>
+                        <%}%>
+                    </ul>
+                    <%}%>
                 </div>
 
             </div>
