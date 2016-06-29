@@ -69,7 +69,7 @@ and open the template in the editor.
                     <h1>會員修改</h1>
                     <p>
                         <label for="email">會員帳號：</label>
-                        <input type="text" id="email" name="email" placeholder="請輸入帳號" value="${not empty param.email?param.email:sessionScope.customer.email}" required>
+                        <input type="text" id="email" name="email" placeholder="請輸入帳號" value="${not empty param.email?param.email:sessionScope.customer.email}" required readonly>
                     </p>
                     <p>
                         <label for="pwd">會員密碼：</label>
@@ -86,7 +86,7 @@ and open the template in the editor.
                     </p>
                     <p>
                         <label for="id">身分證號：</label>
-                        <input type="text" id="id" name="id" placeholder="請輸入你的身分證號" value="${not empty param.id?param.id:sessionScope.customer.id}" required>
+                        <input type="text" id="id" name="id" placeholder="請輸入你的身分證號" value="${not empty param.id?param.id:sessionScope.customer.id}" required readonly>
                     </p>
 
                     <p>
