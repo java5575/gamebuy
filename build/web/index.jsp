@@ -1,3 +1,7 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="gamebuy.gb.domain.Product"%>
+<%@page import="java.util.List"%>
+<%@page import="gamebuy.gb.model.ProductService"%>
 <%@page import="gamebuy.gb.domain.Customer"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -45,7 +49,7 @@ and open the template in the editor.
 
                 </div>
                 <form>
-                    <input type="search" placeholder="請輸入關鍵字"/>
+                    <input type="search" name="search" placeholder="請輸入關鍵字"/>
                     <input type="submit" value="">
                 </form>
             </div>
@@ -58,27 +62,134 @@ and open the template in the editor.
                 </ul>
                 <a class="prev left control" href="#">‹</a>
                 <a class="next right control" href="#">›</a>
-            </div>
+            </div>            
             <div id="MAIN">
                 <ul id="tabMenu">
-                    <li><a href="#" id="TAB1">項目一 </a></li>
-                    <li><a href="#" id="TAB2">項目二</a></li>
-                    <li><a href="#" id="TAB3">項目三</a></li>
-                    <li><a href="#" id="TAB4">項目四</a></li>
-                    <li><a href="#" id="TAB5">項目五</a></li>
-                    <li><a href="#" id="TAB6">項目六</a></li>
-                </ul>
+                    <li><a href="#" id="TAB1">數位遊戲 </a></li>
+                    <li><a href="#" id="TAB2">PlayStation4</a></li>
+                    <li><a href="#" id="TAB3">Xbox</a></li>
+                    <li><a href="#" id="TAB4">PlayStation3</a></li>
+                    <li><a href="#" id="TAB5">Wii U</a></li>
+                    <li><a href="#" id="TAB6">個人電腦</a></li>
+                </ul>                
                 <div class="BOXS" id="BOX1">
-                    <p>本課程是最基礎的網頁設計入門，使用目前業界網頁設計最專業且最普及的軟體課堂上除了對這個軟體的工具操作方法一一解說之外，更著重於實務應用，規劃以完全範例導向為主，讓學生在課堂上紮紮實實製作出一系列本課程是最基礎的網頁設計入門，使用目前業界網頁設計最專業且最普及的軟體各式各樣的網頁本課程是最基礎的網頁設計入門，使用目前業界網頁設計最專業且最普及的軟體課堂上除了對這個軟體的工具操作方法一一解說之外本課程是最基礎的網頁設計入門，使用目前業界網頁設計最專業且最普及的軟體課堂上除了對這個軟體的工具操作方法一一解說之外工具操作方法一一解說之外本課程是最基礎的網頁設計入門，使用目前業界網頁設計最專業且最普及的軟體課堂上除了對這個軟體的工具操作方法本課程是最基礎的網頁設計入門，使用目前業界網頁設計最專業且最普及的軟體課堂上除了對這個軟體的工具操作方法一一解說之外，更著重於實務應用，規劃以完全範例導向為主，讓學生在課堂上紮紮實實製作出一系列本課程是最基礎的網頁設計入門，使用目前業界網頁設計最專業且最普及的軟體各式各樣的網頁本課程是最基礎的網頁設計入門，使用目前業界網頁設計最專業且最普及的軟體課堂上除了對這個軟體的工具操作方法一一解說之外本課程是最基礎的網頁設計入門，使用目前業界網頁設計最專業且最普及的軟體課堂上除了對這個軟體的工具操作方法一一解說之外工具操作方法一一解說之外本課程是最基礎的網頁設計入門，使用目前業界網頁設計最專業且最普及的軟體課堂上除了對這個軟體的工具操作方法本課程是最基礎的網頁設計入門，使用目前業界網頁設計最專業且最普及的軟體課堂上除了對這個軟體的工具操作方法一一解說之外，更著重於實務應用，規劃以完全範例導向為主，讓學生在課堂上紮紮實實製作出一系列本課程是最基礎的網頁設計入門，使用目前業界網頁設計最專業且最普及的軟體各式各樣的網頁本課程是最基礎的網頁設計入門，使用目前業界網頁設計最專業且最普及的軟體課堂上除了對這個軟體的工具操作方法一一解說之外本課程是最基礎的網頁設計入門，使用目前業界網頁設計最專業且最普及的軟體課堂上除了對這個軟體的工具操作方法一一解說之外工具操作方法一一解說之外本課程是最基礎的網頁設計入門，使用目前業界網頁設計最專業且最普及的軟體課堂上除了對這個軟體的工具操作方法本課程是最基礎的網頁設計入門，使用目前業界網頁設計最專業且最普及的軟體課堂上除了對這個軟體的工具操作方法一一解說之外，更著重於實務應用，規劃以完全範例導向為主，讓學生在課堂上紮紮實實製作出一系列本課程是最基礎的網頁設計入門，使用目前業界網頁設計最專業且最普及的軟體各式各樣的網頁本課程是最基礎的網頁設計入門，使用目前業界網頁設計最專業且最普及的軟體課堂上除了對這個軟體的工具操作方法一一解說之外本課程是最基礎的網頁設計入門，使用目前業界網頁設計最專業且最普及的軟體課堂上除了對這個軟體的工具操作方法一一解說之外工具操作方法一一解說之外本課程是最基礎的網頁設計入門，使用目前業界網頁設計最專業且最普及的軟體課堂上除了對這個軟體的工具操作方法本課程是最基礎的網頁設計入門，使用目前業界網頁設計最專業且最普及的軟體課堂上除了對這個軟體的工具操作方法一一解說之外，更著重於實務應用，規劃以完全範例導向為主，讓學生在課堂上紮紮實實製作出一系列本課程是最基礎的網頁設計入門，使用目前業界網頁設計最專業且最普及的軟體各式各樣的網頁本課程是最基礎的網頁設計入門，使用目前業界網頁設計最專業且最普及的軟體課堂上除了對這個軟體的工具操作方法一一解說之外本課程是最基礎的網頁設計入門，使用目前業界網頁設計最專業且最普及的軟體課堂上除了對這個軟體的工具操作方法一一解說之外工具操作方法一一解說之外本課程是最基礎的網頁設計入門，使用目前業界網頁設計最專業且最普及的軟體課堂上除了對這個軟體的工具操作方法本課程是最基礎的網頁設計入門，使用目前業界網頁設計最專業且最普及的軟體課堂上除了對這個軟體的工具操作方法一一解說之外，更著重於實務應用，規劃以完全範例導向為主，讓學生在課堂上紮紮實實製作出一系列本課程是最基礎的網頁設計入門，使用目前業界網頁設計最專業且最普及的軟體各式各樣的網頁本課程是最基礎的網頁設計入門，使用目前業界網頁設計最專業且最普及的軟體課堂上除了對這個軟體的工具操作方法一一解說之外本課程是最基礎的網頁設計入門，使用目前業界網頁設計最專業且最普及的軟體課堂上除了對這個軟體的工具操作方法一一解說之外工具操作方法一一解說之外本課程是最基礎的網頁設計入門，使用目前業界網頁設計最專業且最普及的軟體課堂上除了對這個軟體的工具操作方法</p>
+                    <%
+                        ProductService service = new ProductService();
+                        List<Product> list = null;
+                        String search = request.getParameter("search");
+                        if (search != null && search.matches("\\d+")) {
+                            int id = Integer.parseInt(search);
+                            Product p = service.get(id);
+                            list = new ArrayList<>();
+                            list.add(p);
+                        } else if (search != null) {
+                            list = service.getByName(search);
+                        } else {
+                            list = service.getPlatForm(0);
+                        }
+                        if (list != null && list.size() > 0) {
+                    %>
+                    <ul>
+                        <%for (Product p : list) {%>
+                        <li 
+                            style='display: inline-block;width:250px;height:250px;overflow:auto;background-color: powderblue;box-shadow: 1px 1px 2px gray;padding: 2px;margin: 5px'>
+                            
+                            <a href="product.jsp?pid=<%=p.getId()%>">
+                                <img style='width: 150px' src='<%= p.getUrl()%>'>
+                            </a>
+                            <h3><%=p.getName()%></h3>
+                            <p>售價:<%= p.getUnitPrice()%></p>
+                        </li>
+                        <%}%>
+                    </ul>
+                    <%}%>
                 </div>
                 <div class="BOXS" id="BOX2"> 
-                    <p>小班制，面對面教學品質有保障~ 口碑看得見~教室電腦及網路設備完善，一人一機，有大量的範例讓同學現場練習。上課附有老師親自寫的講義及範例原始檔~ 上完一次課程後可申請多次免費小班制，面對面教學品質有保障~ 口碑看得見~教室電腦及網路設備完善重修喔面對面教學品質有保障~ 口碑看得見~教室電腦及網路設備完善，一人一機，有大量的範例讓同學現場練習。上課附有老師親自寫的講義及範例原始檔~ 上完一次課程後可申請多面對面教學品質有保障~ 口碑看得見~教室電腦及網路設備完善，一人一機，有大量的範例讓同學現場練習。上課附有老師親自寫的講義及範例原始檔~ 上完一次課程後可申請多有大量的範例讓同學現場練習。上課附有老師親自寫</p>
+                    <%
+                        if (search != null && search.matches("\\d+")) {
+                            int id = Integer.parseInt(search);
+                            Product p = service.get(id);
+                            list = new ArrayList<>();
+                            list.add(p);
+                        } else if (search != null) {
+                            list = service.getByName(search);
+                        } else {
+                            list = service.getPlatForm(1);
+                        }
+                        if (list != null && list.size() > 0) {
+                    %>
+                    <ul>
+                        <%for (Product p : list) {%>
+                        <li 
+                            style='display: inline-block;width:250px;height:250px;overflow:auto;background-color: powderblue;box-shadow: 1px 1px 2px gray;padding: 2px;margin: 5px'>
+                            
+                            <a href="product.jsp?pid=<%=p.getId()%>">
+                                <img style='width: 150px' src='<%= p.getUrl()%>'>
+                            </a>
+                            <h3><%=p.getName()%></h3>
+                            <p>售價:<%= p.getUnitPrice()%></p>
+                        </li>
+                        <%}%>
+                    </ul>
+                    <%}%>
                 </div>
                 <div class="BOXS" id="BOX3"> 
-                    <p>目前設計界最重要的軟體，想學習職業等級的影像處理技巧以及影像合成技巧嗎? 您不能錯過本課程喔！是目前設計界最重要的軟體，想學習職業等級的影像處理技巧以及影像合成技巧嗎? 您不能錯是目前設計界最重要的軟體，想學習職業等級的影像處理技巧以及影像合成技巧嗎過本課程喔！是目前設計界最重要的軟體，想學習職業等級的影像處理技巧以及影像合成技巧嗎? 您不能錯是目前設計界最重要的軟體，想學習職業等級的影像處理技巧以及影像合成技巧嗎過本課程喔 級的影像處理技巧以及影像合成技巧嗎? 您不能錯是目前設計界最重要的軟體，想學習職業等級的影像處理技巧以及影像合成技巧嗎過本課程喔 </p>
+                    <%
+                        if (search != null && search.matches("\\d+")) {
+                            int id = Integer.parseInt(search);
+                            Product p = service.get(id);
+                            list = new ArrayList<>();
+                            list.add(p);
+                        } else if (search != null) {
+                            list = service.getByName(search);
+                        } else {
+                            list = service.getPlatForm(2);
+                        }
+                        if (list != null && list.size() > 0) {
+                    %>
+                    <ul>
+                        <%for (Product p : list) {%>
+                        <li 
+                            style='display: inline-block;width:250px;height:250px;overflow:auto;background-color: powderblue;box-shadow: 1px 1px 2px gray;padding: 2px;margin: 5px'>
+                            
+                            <a href="product.jsp?pid=<%=p.getId()%>">
+                                <img style='width: 150px' src='<%= p.getUrl()%>'>
+                            </a>
+                            <h3><%=p.getName()%></h3>
+                            <p>售價:<%= p.getUnitPrice()%></p>
+                        </li>
+                        <%}%>
+                    </ul>
+                    <%}%>
                 </div>
                 <div class="BOXS" id="BOX4"> 
-                    <p>除了基本操作，您將可學習到許多高階的影像處理技巧及去背合成技巧，例如：遮色片應用、色版應用、混色模式 ...等。並且除了軟體的操作技巧，課堂上還會探討色彩觀念、設計作品的配色技巧、排版觀念、網頁版面的設除了基本操作，您將可學習到許多高階的影像處理技巧及去背合成技巧，例如：遮色片應用計觀念您將可學習到許多高階的影像處理技巧及去背合成技巧，例如：遮色片應用、色版應用、混色模式 ...等。並且除了軟體的操作技巧，課堂上還會探討色彩觀念、設計作品的配色技巧、排版觀念您將可學習到許多高階的影像處理技巧及去背合成技巧，例如：遮色片應用、色版應用、混色模式 ...等。可學習到許多高階的影像處理技巧及去背合成技巧。</p>
+                    <%
+                        if (search != null && search.matches("\\d+")) {
+                            int id = Integer.parseInt(search);
+                            Product p = service.get(id);
+                            list = new ArrayList<>();
+                            list.add(p);
+                        } else if (search != null) {
+                            list = service.getByName(search);
+                        } else {
+                            list = service.getPlatForm(3);
+                        }
+                        if (list != null && list.size() > 0) {
+                    %>
+                    <ul>
+                        <%for (Product p : list) {%>
+                        <li 
+                            style='display: inline-block;width:250px;height:250px;overflow:auto;background-color: powderblue;box-shadow: 1px 1px 2px gray;padding: 2px;margin: 5px'>
+                            
+                            <a href="product.jsp?pid=<%=p.getId()%>">
+                                <img style='width: 150px' src='<%= p.getUrl()%>'>
+                            </a>
+                            <h3><%=p.getName()%></h3>
+                            <p>售價:<%= p.getUnitPrice()%></p>
+                        </li>
+                        <%}%>
+                    </ul>
+                    <%}%>
                 </div>
                 <div class="BOXS" id="BOX5"> 
                     <p>BOX5</p>
@@ -89,9 +200,9 @@ and open the template in the editor.
 
             </div>
             <form id="subselect">
-                <input type="radio" id="radio1" name="radio" />項目1
-                <input type="radio" id="radio2" name="radio" />項目2
-                <input type="radio" id="radio3" name="radio" />項目3
+                <input type="radio" id="radio1" name="radio" />遊戲軟體
+                <input type="radio" id="radio2" name="radio" />中文化遊戲軟體
+                <input type="radio" id="radio3" name="radio" />限制級專區
             </form>
 
         </div>
