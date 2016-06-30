@@ -1,0 +1,120 @@
+body{
+    background-image: url(../images/bg-body.jpg);
+}
+.wrapper{
+    width: 850px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/*header start*/
+.header{
+    position: fixed;
+    width: 850px;
+    height: 50px;
+    background-image: url("../images/headbg.png");
+    top: 0;
+    z-index: 999;
+}
+.logo{
+    position: absolute;
+    width: 12%;
+    z-index: 2;
+}
+.memberlist{
+    height: 50px;
+    float: right;
+}
+.memberlist img{
+    width: 50px;
+    float: right;
+}
+.memberlist a, .memberlist span{
+    color: #134067;
+    text-decoration: none;
+    font-size: 1em;
+    font-weight: bold;
+    line-height: 50px;
+    margin:0 10px;
+}
+/*header end*/
+
+/*middle start*/
+#middle{
+    border-right:1px solid #000000;
+    border-bottom:1px solid #000000;
+    border-radius: 30px;
+    width: 400px;
+    text-align: center;
+    padding: 20px 0px;
+    box-shadow:10px 10px 10px rgba(20%,20%,40%,0.5);
+    margin: 100px auto 20px auto;
+    position: relative;
+    background-color: rgba(255,255,255,0.3);
+    animation: example 2s 1 cubic-bezier(0.680, -0.550, 0.265, 1.550) alternate;
+}
+#middle img{
+    position: relative;
+    left: -20px;
+}
+h1{
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    width: 400px;
+    height: 40px;
+    background-color: #ee9900;
+    color: #000000;
+    margin-bottom: 40px;
+    line-height: 40px;
+    font-size: 1.4em;
+    font-weight: bold;
+}
+
+p{
+    margin-bottom: 20px;
+}
+.loginbutton{
+    border: none;
+    width: 100px;
+    height: 30px;
+    border-radius: 10px;
+    background-color: #ff8800;
+    box-shadow: 1px 1px 1px #000000;
+
+}
+p input[type="text"],p input[type="password"]{
+    border: 1px black solid;
+
+}
+#errorMsg{
+    list-style-type: none;
+}
+.changimg{
+    border: 1px #000000 solid;
+    box-shadow: 1px 1px 2px #000000;
+    cursor:pointer ;
+}
+#middle img~input{
+    position: relative;
+    left: -5px;
+}
+
+@keyframes example{
+    from{top:-500px;}
+    to{top:0px}
+}
+
+#middle ul li{
+    list-style: none;
+}
+/*middle end*/
+.footer{
+    width: 850px;
+    position: relative;  
+    color: #000000;
+    line-height: 50px;
+    text-align: center;
+    height: 50px;
+    bottom: 0;
+    margin: 0px auto;  
+}
