@@ -91,14 +91,14 @@ and open the template in the editor.
                     %>
                     <ul>
                         <%for (Product p : list) {%>
-                        <li 
-                            style='display: inline-block;width:250px;height:250px;overflow:auto;background-color: powderblue;box-shadow: 1px 1px 2px gray;padding: 2px;margin: 5px'>
-                            
+                        <li class="product_list">
+
                             <a href="product.jsp?pid=<%=p.getId()%>">
-                                <img style='width: 150px' src='<%= p.getUrl()%>'>
+                                <img src='<%= p.getUrl()%>'>
+
+                                <h3><%=p.getName()%></h3>
+                                <p>售價:<%= p.getUnitPrice()%></p>
                             </a>
-                            <h3><%=p.getName()%></h3>
-                            <p>售價:<%= p.getUnitPrice()%></p>
                         </li>
                         <%}%>
                     </ul>
@@ -120,11 +120,10 @@ and open the template in the editor.
                     %>
                     <ul>
                         <%for (Product p : list) {%>
-                        <li 
-                            style='display: inline-block;width:250px;height:250px;overflow:auto;background-color: powderblue;box-shadow: 1px 1px 2px gray;padding: 2px;margin: 5px'>
-                            
+                        <li class="product_list">
+
                             <a href="product.jsp?pid=<%=p.getId()%>">
-                                <img style='width: 150px' src='<%= p.getUrl()%>'>
+                                <img src='<%= p.getUrl()%>'>
                             </a>
                             <h3><%=p.getName()%></h3>
                             <p>售價:<%= p.getUnitPrice()%></p>
@@ -149,11 +148,10 @@ and open the template in the editor.
                     %>
                     <ul>
                         <%for (Product p : list) {%>
-                        <li 
-                            style='display: inline-block;width:250px;height:250px;overflow:auto;background-color: powderblue;box-shadow: 1px 1px 2px gray;padding: 2px;margin: 5px'>
-                            
+                        <li class="product_list">
+
                             <a href="product.jsp?pid=<%=p.getId()%>">
-                                <img style='width: 150px' src='<%= p.getUrl()%>'>
+                                <img src='<%= p.getUrl()%>'>
                             </a>
                             <h3><%=p.getName()%></h3>
                             <p>售價:<%= p.getUnitPrice()%></p>
@@ -178,11 +176,10 @@ and open the template in the editor.
                     %>
                     <ul>
                         <%for (Product p : list) {%>
-                        <li 
-                            style='display: inline-block;width:250px;height:250px;overflow:auto;background-color: powderblue;box-shadow: 1px 1px 2px gray;padding: 2px;margin: 5px'>
-                            
+                        <li class="product_list">
+
                             <a href="product.jsp?pid=<%=p.getId()%>">
-                                <img style='width: 150px' src='<%= p.getUrl()%>'>
+                                <img src='<%= p.getUrl()%>'>
                             </a>
                             <h3><%=p.getName()%></h3>
                             <p>售價:<%= p.getUnitPrice()%></p>
@@ -201,7 +198,7 @@ and open the template in the editor.
             </div>
             <form id="subselect">
                 <p><input type="radio" id="radio1" name="radio" />遊戲軟體</p>
-               <p><input type="radio" id="radio2" name="radio" />中文化遊戲</p>
+                <p><input type="radio" id="radio2" name="radio" />中文化遊戲</p>
                 <p><input type="radio" id="radio3" name="radio" />限制級專區</p>
             </form>
 

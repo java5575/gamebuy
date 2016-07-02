@@ -4,23 +4,23 @@ body{
     background-attachment:fixed;
     background-repeat: no-repeat;
     background-size:cover;
- 
+
 }
 
 .wrapper{
     width: 850px;
     margin: 0 auto;
     position: relative;
-    
+
 }
 .header{
     position: fixed;
     width: 850px;
     height: 50px;
     background-color: black;
-     top: 0;
-   z-index: 999;
-   color: white;
+    top: 0;
+    z-index: 999;
+    color: white;
 }
 .logo{
     position: absolute;
@@ -55,7 +55,7 @@ body{
 }
 
 .memberlist{
-  
+
     height: 50px;
     float: right;
 
@@ -73,7 +73,7 @@ body{
     line-height: 50px;
     margin:0 10px;
 
-    
+
 }
 ul, li {
     margin: 0;
@@ -90,7 +90,7 @@ a img {
     height: 412px;	/* 圖片的高 */
     margin-bottom: 20px;
     margin-top: 60px;
-  
+
 }
 #slide ul {
     width: 9999px;
@@ -143,15 +143,15 @@ a img {
     padding: 20px;
     margin-bottom: 20px;
     position: relative;
-    
+
 }
-#MAIN ul {
+#MAIN #tabMenu {
     width:840px;
     list-style: none;
     margin: 0;
     padding: 0;
 }
-#MAIN li {
+#MAIN> ul > li {
     position: relative;
     display:inline-block;
     width: 100px;
@@ -161,10 +161,10 @@ a img {
     margin-left: 8px;
     background-color: #ee9900;
     color: #000000;
-    
+
 }
-#MAIN li a {
-    
+#MAIN >ul>li > a {
+
     display: inline-block;
     width: 100px;
     height: 40px;
@@ -172,10 +172,10 @@ a img {
     line-height: 40px;
     color: #000000;
     text-decoration: none;
-   
+
     letter-spacing:1px;
     border-radius: 20px 20px 0 0;
-    
+
 }
 
 .NOWTAB {
@@ -205,7 +205,7 @@ a img {
     box-shadow: 2px 2px 5px #000000;
 }
 .BOXS p {
-    
+
     width: 100%;
     font-size: 13px;
     line-height: 1.8;
@@ -217,6 +217,31 @@ a img {
 #BOX2, #BOX3, #BOX4,#BOX5,#BOX6 {
     display:none;
 }
+
+.product_list {
+    float: left;
+    width: 160px;
+    height: 270px;    
+    margin: 15px;
+}
+.product_list img,.product_list p,.product_list h3{
+    margin: 10px;
+    width: 150px;
+
+}
+
+.product_list a{
+    display: block;
+    width: 170px;
+    text-decoration: none;
+    color: black;   
+}
+.product_list a:hover{
+    border: 1px #666666 solid;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px #333333 inset,3px 3px 8px #666666 inset,5px 5px 10px #999999 inset,8px 8px 12px #BBBBBB inset;
+}
+
 #subselect{
     width: 110px;
     position: absolute;
@@ -226,9 +251,9 @@ a img {
     padding: 10px;
     line-height: 30px;
     box-shadow: -2px 5px 10px #333333;
-   font-weight:bold;
-    
-    
+    font-weight:bold;
+
+
 }
 .footer{
     width: 850px;
@@ -242,6 +267,6 @@ a img {
     height: 50px;
     bottom: 0;
     margin: 0px auto;
-   
-   
+
+
 }
