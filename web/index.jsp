@@ -97,6 +97,7 @@ and open the template in the editor.
                                 <img src='<%= p.getUrl()%>'>
 
                                 <h3><%=p.getName()%></h3>
+                                
                                 <p>售價:<%= p.getUnitPrice()%></p>
                             </a>
                         </li>
@@ -124,9 +125,10 @@ and open the template in the editor.
 
                             <a href="product.jsp?pid=<%=p.getId()%>">
                                 <img src='<%= p.getUrl()%>'>
-                            </a>
+                       
                             <h3><%=p.getName()%></h3>
                             <p>售價:<%= p.getUnitPrice()%></p>
+                                 </a>
                         </li>
                         <%}%>
                     </ul>
@@ -152,9 +154,10 @@ and open the template in the editor.
 
                             <a href="product.jsp?pid=<%=p.getId()%>">
                                 <img src='<%= p.getUrl()%>'>
-                            </a>
+                         
                             <h3><%=p.getName()%></h3>
                             <p>售價:<%= p.getUnitPrice()%></p>
+                               </a>
                         </li>
                         <%}%>
                     </ul>
@@ -180,9 +183,10 @@ and open the template in the editor.
 
                             <a href="product.jsp?pid=<%=p.getId()%>">
                                 <img src='<%= p.getUrl()%>'>
-                            </a>
+                   
                             <h3><%=p.getName()%></h3>
                             <p>售價:<%= p.getUnitPrice()%></p>
+                                     </a>
                         </li>
                         <%}%>
                     </ul>

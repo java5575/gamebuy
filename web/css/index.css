@@ -221,10 +221,11 @@ a img {
 .product_list {
     float: left;
     width: 160px;
-    height: 270px;    
+    height: 320px;    
     margin: 15px;
 }
 .product_list img,.product_list p,.product_list h3{
+    font-size: 16px;
     margin: 10px;
     width: 150px;
 
@@ -233,6 +234,7 @@ a img {
 .product_list a{
     display: block;
     width: 170px;
+    height: 320px;
     text-decoration: none;
     color: black;   
 }
