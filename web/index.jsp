@@ -19,6 +19,7 @@ and open the template in the editor.
         <link rel="bookmark" href="images/icon.ico"/>
         <link href="css/reset.css" rel="stylesheet" type="text/css"/>
         <link href="css/index.css" rel="stylesheet" type="text/css"/>
+        <link href="css/indexandfooter.css" rel="stylesheet" type="text/css"/>
         <script src="js/jquery.js" type="text/javascript"></script>
         <script src="js/slide.js" type="text/javascript"></script>
         <script src="js/tab.js" type="text/javascript"></script>
@@ -27,8 +28,7 @@ and open the template in the editor.
         </style>
     </head>
     <body>
-
-        <div class="wrapper">
+        <div class ="header_outside">
             <div class="header">
                 <a href="index.jsp"><img class="logo" src="images/logo2.png" alt=""/></a>
                 <div class="memberlist">
@@ -53,6 +53,9 @@ and open the template in the editor.
                     <input type="submit" value="">
                 </form>
             </div>
+        </div>
+        <div class="wrapper">
+
             <div id="slide">
                 <ul>
                     <li><a href="#"><img src="images/slide_1.jpg" /></a></li>
@@ -97,7 +100,7 @@ and open the template in the editor.
                                 <img src='<%= p.getUrl()%>'>
 
                                 <h3><%=p.getName()%></h3>
-                                
+
                                 <p>售價:<%= p.getUnitPrice()%></p>
                             </a>
                         </li>
@@ -125,10 +128,10 @@ and open the template in the editor.
 
                             <a href="product.jsp?pid=<%=p.getId()%>">
                                 <img src='<%= p.getUrl()%>'>
-                       
-                            <h3><%=p.getName()%></h3>
-                            <p>售價:<%= p.getUnitPrice()%></p>
-                                 </a>
+
+                                <h3><%=p.getName()%></h3>
+                                <p>售價:<%= p.getUnitPrice()%></p>
+                            </a>
                         </li>
                         <%}%>
                     </ul>
@@ -154,10 +157,10 @@ and open the template in the editor.
 
                             <a href="product.jsp?pid=<%=p.getId()%>">
                                 <img src='<%= p.getUrl()%>'>
-                         
-                            <h3><%=p.getName()%></h3>
-                            <p>售價:<%= p.getUnitPrice()%></p>
-                               </a>
+
+                                <h3><%=p.getName()%></h3>
+                                <p>售價:<%= p.getUnitPrice()%></p>
+                            </a>
                         </li>
                         <%}%>
                     </ul>
@@ -183,10 +186,10 @@ and open the template in the editor.
 
                             <a href="product.jsp?pid=<%=p.getId()%>">
                                 <img src='<%= p.getUrl()%>'>
-                   
-                            <h3><%=p.getName()%></h3>
-                            <p>售價:<%= p.getUnitPrice()%></p>
-                                     </a>
+
+                                <h3><%=p.getName()%></h3>
+                                <p>售價:<%= p.getUnitPrice()%></p>
+                            </a>
                         </li>
                         <%}%>
                     </ul>
@@ -207,8 +210,10 @@ and open the template in the editor.
             </form>
 
         </div>
-        <div class="footer">
-            <p>Copy right by Caesar wang</p>
+        <div class="footwer_outside">
+            <div class="footer">
+                <p>Copy right by Caesar wang</p>
+            </div>
         </div>
     </body>
 </html>

@@ -12,13 +12,16 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+             <link href="css/register.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="jquery-ui-1.11.4.custom/jquery-ui.css">
         <script src="jquery-ui-1.11.4.custom/jquery-1.12.4.min.js"></script>
         <script src="jquery-ui-1.11.4.custom/jquery-ui.js"></script>
+   
+        <link href="css/indexandfooter.css" rel="stylesheet" type="text/css"/>
         <link rel="shortcut icon" href="images/icon.ico"/>
         <link rel="bookmark" href="images/icon.ico"/>
         <title>會員註冊</title>
-        <link href="css/register.css" rel="stylesheet" type="text/css"/>
+
         <script>
             function refreshHandler() {
                 var check_img = document.getElementById("check_code_image");
@@ -35,7 +38,7 @@
         </script>
     </head>
     <body>
-        <div class="wrapper">
+        <div class ="header_outside">
             <div class="header">
                 <a href="index.jsp"><img class="logo" src="images/logo2.png" alt=""/></a>
                 <div class="memberlist">
@@ -51,9 +54,17 @@
                     <a href="${pageContext.request.contextPath}/user/update.jsp">修改會員資料</a>|
                     <a href="${pageContext.request.contextPath}/logout.do">登出</a>
                     <span><%= customer != null ? customer.getName() + "你好" : ""%></span>
+
                     <%}%>
+
                 </div>
+                <form>
+                    <input type="search" name="search" placeholder="請輸入關鍵字"/>
+                    <input type="submit" value="">
+                </form>
             </div>
+        </div>
+        <div class="wrapper">
             <div id="middle">
                 <form method="POST" action="register.do">
                     <h1>會員註冊</h1>

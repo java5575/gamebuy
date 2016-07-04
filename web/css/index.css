@@ -1,88 +1,4 @@
 
-body{
-    background-image: url("../images/bg-body.jpg") ;
-    background-attachment:fixed;
-    background-repeat: no-repeat;
-    background-size:cover;
-
-}
-
-.wrapper{
-    width: 850px;
-    margin: 0 auto;
-    position: relative;
-
-}
-.header{
-    position: fixed;
-    width: 850px;
-    height: 50px;
-    background-color: black;
-    top: 0;
-    z-index: 999;
-    color: white;
-}
-.logo{
-    position: absolute;
-    width: 12%;
-    z-index: 2;
-}
-.header form input:last-child{
-    background:url(../images/buttons.png) no-repeat;
-    border:0;
-    float:left;
-    width:72px;
-    height:24px;
-    margin-top:15px; 
-    margin-left:10px;
-    cursor:pointer;
-}
-.header form input:last-child:hover{
-    background:url(../images/buttons.png) no-repeat 0px -134px;
-
-
-
-}
-
-.header form input:first-child{
-    background: url(../images/bg-search.jpg) no-repeat;  
-    float:left;
-    width: 170px;
-    height:24px;
-    margin-top: 15px;
-    margin-left: 120px;
-
-}
-
-.memberlist{
-
-    height: 50px;
-    float: right;
-
-
-}
-.memberlist img{
-    width: 50px;
-    float: right;
-}
-.memberlist a, .memberlist span{
-    color: white;
-    text-decoration: none;
-    font-size: 1em;
-    font-weight: bold;
-    line-height: 50px;
-    margin:0 10px;
-
-
-}
-ul, li {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-a img {
-    border: none;
-}
 #slide {    
     overflow: hidden;
     position: relative;
@@ -257,18 +173,5 @@ a img {
 
 
 }
-.footer{
-    width: 850px;
-    position: relative;
-    font-size: 24px;
-    color: #FFFFFF;
-    font-weight: bold;
-    line-height: 50px;
-    text-align: center;
-
-    height: 50px;
-    bottom: 0;
-    margin: 0px auto;
 
 
-}

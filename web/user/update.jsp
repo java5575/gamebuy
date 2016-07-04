@@ -22,10 +22,12 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="shortcut icon" href="../images/icon.ico"/>
         <link rel="bookmark" href="../images/icon.ico"/>
+        <link href="../css/reset.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="${pageContext.request.contextPath}/jquery-ui-1.11.4.custom/jquery-ui.css">
         <script src="${pageContext.request.contextPath}/jquery-ui-1.11.4.custom/jquery-1.12.4.min.js"></script>
         <script src="${pageContext.request.contextPath}/jquery-ui-1.11.4.custom/jquery-ui.js"></script>
         <link href="../css/update.css" rel="stylesheet" type="text/css"/>
+        <link href="../css/indexandfooter.css" rel="stylesheet" type="text/css"/>
         <script>
 
             $(function () {
@@ -43,9 +45,9 @@ and open the template in the editor.
         </script>
     </head>
     <body>
-        <div class="wrapper">
+                <div class ="header_outside">
             <div class="header">
-                <a href="index.jsp"><img class="logo" src="../images/logo2.png" alt=""/></a>
+                <a href="../index.jsp"><img class="logo" src="../images/logo2.png" alt=""/></a>
                 <div class="memberlist">
                     <%
                         if (customer == null) {
@@ -55,14 +57,21 @@ and open the template in the editor.
                     <a href="${pageContext.request.contextPath}/login.jsp">登入</a>|
                     <a href="${pageContext.request.contextPath}/register.jsp">註冊</a>
                     <%} else {%>
-                    <a href="#"><img src="../images/shoppingcar.png"/></a>
+                    <a href="#"><img src="images/shoppingcar.png"/></a>
                     <a href="${pageContext.request.contextPath}/user/update.jsp">修改會員資料</a>|
                     <a href="${pageContext.request.contextPath}/logout.do">登出</a>
                     <span><%= customer != null ? customer.getName() + "你好" : ""%></span>
-                    <%}%>
-                </div>
-            </div>
 
+                    <%}%>
+
+                </div>
+                <form>
+                    <input type="search" name="search" placeholder="請輸入關鍵字"/>
+                    <input type="submit" value="">
+                </form>
+            </div>
+        </div>
+        <div class="wrapper">
             <div id="middle">
                 <form method="POST" action="update.do">
 

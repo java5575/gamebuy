@@ -1,48 +1,4 @@
-body{
-    background-image: url("../images/bg-body.jpg") ;
-    background-attachment:fixed;
-    background-repeat: no-repeat;
-    background-size:cover;
-       font-weight:bold;
-}
-.wrapper{
-    width: 850px;
-    margin: 0 auto;
-    position: relative;
-}
 
-/*header start*/
-.header{
-    position: fixed;
-    width: 850px;
-    height: 50px;
-    background-color: black;
-    top: 0;
-    z-index: 999;
-    color: white;
-}
-.logo{
-    position: absolute;
-    width: 12%;
-    z-index: 2;
-}
-.memberlist{
-    height: 50px;
-    float: right;
-}
-.memberlist img{
-    width: 50px;
-    float: right;
-}
-.memberlist a, .memberlist span{
-   color: white;
-    text-decoration: none;
-    font-size: 1em;
-    font-weight: bold;
-    line-height: 50px;
-    margin:0 10px;
-}
-/*header end*/
 
 /*middle start*/
 #middle{
@@ -111,18 +67,4 @@ p input[type="text"],p input[type="password"],p input[type="tel"]{
 
 #middle ul li{
     list-style: none;
-}
-/*middle end*/
-.footer{
-    width: 850px;
-    position: relative;
-    font-size: 24px;
-    color: #FFFFFF;
-    font-weight: bold;
-    line-height: 50px;
-    text-align: center;
-
-    height: 50px;
-    bottom: 0;
-    margin: 0px auto;
 }
