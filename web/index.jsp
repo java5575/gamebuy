@@ -40,7 +40,7 @@ and open the template in the editor.
                     <a href="${pageContext.request.contextPath}/login.jsp">登入</a>|
                     <a href="${pageContext.request.contextPath}/register.jsp">註冊</a>
                     <%} else {%>
-                    <a href="#"><img src="images/shoppingcar.png"/></a>
+                    <a href="${pageContext.request.contextPath}/cart.jsp"><img src="images/shoppingcar.png"/></a>
                     <a href="${pageContext.request.contextPath}/user/update.jsp">修改會員資料</a>|
                     <a href="${pageContext.request.contextPath}/logout.do">登出</a>
                     <span><%= customer != null ? customer.getName() + "你好" : ""%></span>

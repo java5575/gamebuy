@@ -7,8 +7,9 @@ package gamebuy.gb.controller;
 
 import gamebuy.gb.domain.Product;
 import gamebuy.gb.domain.ShoppingCart;
-import gamebuy.gb.model.ProductService;
 import java.io.IOException;
+import java.util.HashSet;
+import java.util.Set;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,8 +20,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Administrator
  */
-@WebServlet(name = "AddCartServlet", urlPatterns = {"/add_cart.do"})
-public class AddCartServlet extends HttpServlet {
+@WebServlet(name = "UpdateCartServlet", urlPatterns = {"/update_cart.do"})
+public class UpdateCartServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,25 +34,33 @@ public class AddCartServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String id = request.getParameter("pid");
-        if(id != null && id.matches("\\d+")){
-            int pid = Integer.parseInt(id);
-            try{
-                ProductService service = new ProductService();
-                Product p = service.get(pid);
-                if(p != null){
-                    ShoppingCart cart = (ShoppingCart) request.getSession().getAttribute("cart");
-                    if (cart == null) {
-                        cart = new ShoppingCart();
-                        request.getSession().setAttribute("cart", cart);
+        ShoppingCart cart = (ShoppingCart)request.getSession().getAttribute("cart");
+        if(cart!=null && !cart.isEmpty()){
+            Set<Product> deleteSet = new HashSet<>();
+            Set<Product> keySet = cart.keySet();
+            for(Product p:keySet){
+                String quantity = request.getParameter("quantity_"+p.getId());
+                String delete = request.getParameter("delete_"+p.getId());
+                if(delete!=null){
+                    //cart.remove(p); //Runtime會發生ConcurrentModificationException
+                    deleteSet.add(p);
+                }else{
+                    if(quantity!=null && quantity.matches("\\d+")){
+                        int q = Integer.parseInt(quantity);
+                        if(q>0){
+                            cart.update(p, q);
+                        }
+                    }else{
+                        System.out.println("修改產品數量失敗: " + p.getName() + "," + quantity);
                     }
-                    cart.add(p);
-                }
-            }catch(Exception ex){
-                System.out.println("加入購物車失敗!");
+                }                
+            }            
+            for(Product p:deleteSet){
+                cart.remove(p);
             }
-        }
+        }        
         response.sendRedirect(request.getContextPath() + "/cart.jsp");
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -63,11 +72,11 @@ public class AddCartServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
-    }
+//    @Override
+//    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+//            throws ServletException, IOException {
+//        processRequest(request, response);
+//    }
 
     /**
      * Handles the HTTP <code>POST</code> method.
