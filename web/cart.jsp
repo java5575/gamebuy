@@ -63,15 +63,15 @@
                     <tfoot>
                         <tr>
                             <td colspan="7" style="text-align: right">
-                                您有<%= cart.getUser().getBonus()%>點紅利,本次抵用:
-                                <input type="number" name="bonus">點 
+                                
+                                您有<%= customer.getBonus()%>點紅利,本次抵用:
+                                <input type="number" name="used_bonus">點
                             </td>
                         </tr>
                         <tr>
                             <td colspan="7" style="text-align: right">
                                 付款金額:
                           </td>
-                           <%-- int bonus = Integer.parseInt(request.getParameter("bonus")); --%>
                             <td><%= cart.getTotalAmount()%></td>
                         </tr>
                     </tfoot>
