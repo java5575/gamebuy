@@ -72,19 +72,29 @@
                                 </select>
                             </td>
                         </tr>
+
                         <tr>
                             <td colspan="3" style="text-align: right">
-                                含其他費用之總金額:
-                            </td>
-                            <td><h3 id="total_fee"><%= cart.getTotalAmount()%></h3></td>
-                        </tr>
-                        <tr>
-                            <td colspan="3" style="text-align: right">
-                                含其他費用之總金額(扣掉使用紅利後):
-                            </td>
-                            <%-- int bouns = request.getParameter("used_bonus") != null && request.getParameter("used_bonus").matches("\\d+") ? Integer.parseInt(request.getParameter("used_bonus")) : 0;--%>
-                            <td><h3 id="total_fee"><%= cart.getTotalAmount()%></h3></td>
-                        </tr>
+                                您有<%= customer.getBonus()%>紅利點數，本次使用
+                                <input type="number" id="used_bonus" name="used_bonus"  onchange="changeAmountHandler()">
+                                點紅利
+                    <c:if test="${not empty requestScope.errors}">
+
+                        <c:forEach  var="msg" items="${requestScope.errors}" >
+                            <p>${msg}</p> 
+                        </c:forEach>
+
+                    </c:if>
+                    </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" style="text-align: right">
+                            付款總金額(扣除紅利後):
+                        </td>
+                        <% int bouns = request.getParameter("used_bonus") != null && request.getParameter("used_bonus").matches("\\d+") ? Integer.parseInt(request.getParameter("used_bonus")) : 0;%>
+
+                        <td><h3 id="total_fee"><%= cart.getTotalAmount()%></h3></td>
+                    </tr>
                     </tfoot>
                     <body>
                 </table>
@@ -145,8 +155,8 @@
                     var shArray = payment_type_array[pTypeIndex].shippingArray;
                     $("#shipping_type").empty();
                     $("#shipping_type").append("<option value=''>請選擇...</option>");
-                              for (i = 0; i < shArray.length; i++){
-                     var sTypeIndex = shArray[i];
+                    for (i = 0; i < shArray.length; i++){
+                    var sTypeIndex = shArray[i];
                     var optInfo = "<option value='" + sTypeIndex + "'>"
                             + shipping_type_array[sTypeIndex].description + "</option>";
                     console.log(optInfo);
@@ -154,15 +164,30 @@
                     }
                     }
 
-                 function calculateAmountHandler(){
-                var pTypeIndex = $("#payment_type").val();
-                var sTypeIndex = $("#shipping_type").val();
-                if (pTypeIndex >= 0 && sTypeIndex >= 0){
-                var pType = payment_type_array[pTypeIndex];
-                var sType = shipping_type_array[sTypeIndex];
-                $("#total_fee").text(<%= cart.getTotalAmount()%> + pType.fee + sType.fee);
-                }
-                }
+                    function calculateAmountHandler(){
+                    var pTypeIndex = $("#payment_type").val();
+                    var sTypeIndex = $("#shipping_type").val();
+                    if (pTypeIndex >= 0 && sTypeIndex >= 0){
+                    var pType = payment_type_array[pTypeIndex];
+                    var sType = shipping_type_array[sTypeIndex];
+                    $("#total_fee").text(<%= cart.getTotalAmount()%> + pType.fee + sType.fee);
+                    }
+                    }
+
+                    function changeAmountHandler(){
+                    var pTypeIndex = $("#payment_type").val();
+                    var sTypeIndex = $("#shipping_type").val();
+                    var pType = payment_type_array[pTypeIndex];
+                    var sType = shipping_type_array[sTypeIndex];
+                    var usedBonus = $("#used_bonus").val();
+                    if (usedBonus >= 0 && usedBonus <= <%= customer.getBonus()%>){
+
+                    $("#total_fee").text(<%= cart.getTotalAmount()%> - usedBonus + pType.fee + sType.fee);
+                    } else{
+                    alert("紅利不足");
+                    }
+                    }
+
                     function copyData() {
                     $("#receiver_name").val($("#name").val());
                     $("#receiver_email").val($("#email").val());

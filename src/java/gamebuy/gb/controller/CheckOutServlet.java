@@ -86,6 +86,10 @@ public class CheckOutServlet extends HttpServlet {
         if(address == null || (address = address.trim()).length() == 0){
             errors.add("請輸入收件人地址!");
         }
+        int bonus = Integer.parseInt(request.getParameter("used_bonus"));
+        if(bonus > user.getBonus()){
+            errors.add("紅利不足!");
+        }
         if(errors.isEmpty()){
             //2.呼叫商業邏輯
             try{
@@ -104,6 +108,7 @@ public class CheckOutServlet extends HttpServlet {
                 order.setReceiverEmail(email);
                 order.setReceiverPhone(phone);
                 order.setShippingAddress(address);
+                order.setBonus(bonus);
                 
                 service.create(order);
                 session.removeAttribute("cart");

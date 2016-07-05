@@ -101,7 +101,7 @@
 
                 <div class="BOXS" id="BOX1"> 
                     <%
-                        ProductService service = new ProductService();
+                                ProductService service = new ProductService();
                         List<Product> list = null;
                         String search = request.getParameter("search");
                         if (search != null && search.matches("\\d+")) {

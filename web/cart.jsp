@@ -93,9 +93,19 @@
                     <tfoot>
                         
                         <tr>
+<<<<<<< HEAD
                             <td colspan="8">
                                 付款金額:<%= cart.getTotalAmount()%>元
                           </td>
+=======
+                            <td colspan="7" style="text-align: right">
+                                付款金額:
+                          </td>
+
+                          </td>
+
+                            <td><%= cart.getTotalAmount()%></td>
+>>>>>>> origin/master
                         </tr>
                         <tr>
                             <td colspan="8"><input type="button" class="continu" value="繼續購物" onclick="location.href = 'index.jsp';"><input type="button" class="check_out" value="前往結帳" onclick="location.href = 'user/check_out.jsp';"></td>
