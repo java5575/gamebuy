@@ -103,6 +103,14 @@
         <servlet-name>RegistServlet</servlet-name>
         <url-pattern>/register.do</url-pattern>
     </servlet-mapping>
+       <servlet>
+        <servlet-name>ProductPaneJSP</servlet-name>
+        <jsp-file>/WEB-INF/product.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ProductPaneJSP</servlet-name>
+        <url-pattern>/product_pane.jsp</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30

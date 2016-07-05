@@ -2,23 +2,103 @@
     position: relative;
     width: 850px;
     margin: 200px auto 50px auto;
-    background-color: rgba(255,255,255,0.7);
+    background-color: rgba(255,255,255,0.8);
     box-shadow: 2px 2px 5px #000000,4px 4px 8px #333333,5px 5px 10px #666666;
     border-radius: 20px;
 
 }
-
+.wrapper table{
+    width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
 .wrapper table thead th{
     border-bottom: 1px #000000 solid;
+
 }
 
-
+.wrapper table tr{
+    margin-bottom: 100px;
+}
 .wrapper table tbody th,.wrapper table tbody td{
-    min-width: 40px;
+    min-width: 30px;
     text-align: center;
+    padding: 10px 0;
 }
 
 .quantity{
     width: 30px;
-    
+
 }
+
+.update{
+    width: 50px;
+    height: 25px;
+    background-color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.5s ease;
+      border: 1px #000000 solid;
+}
+
+.update:hover{
+    width: 50px;
+    height: 25px;
+    background-color: #ff8800;
+    border-radius: 5px;
+}
+.delete{
+    border: 1px #000000 solid;
+    width: 50px;
+    height: 25px;
+    background-color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.5s ease;
+}
+
+.delete:hover{
+    width: 50px;
+    height: 25px;
+    background-color: #ff8800;
+    border-radius: 5px;
+}
+
+.continu{
+    border: 1px #000000 solid;
+    position: relative;
+    width: 80px;
+    height: 25px;
+    border-radius: 5px;
+    background-color: white;
+    cursor: pointer;
+    transition: background-color 0.5s ease;
+      border: 1px #000000 solid;
+}
+
+.continu:hover{
+    background-color: #ff8800;
+
+}
+.check_out{
+    position: relative;
+    width: 80px;
+    height: 25px;
+    border-radius: 5px;
+    background-color: white;
+    cursor: pointer;
+    transition: all 0.5s ease;
+      border: 1px #000000 solid;
+
+
+}
+
+.check_out:hover{
+    background-color: #ff8800;
+
+
+}
+tfoot{
+    text-align: right;
+}
+
