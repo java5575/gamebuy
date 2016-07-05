@@ -180,7 +180,7 @@
                     var pType = payment_type_array[pTypeIndex];
                     var sType = shipping_type_array[sTypeIndex];
                     var usedBonus = $("#used_bonus").val();
-                    if (usedBonus > 0 && usedBonus < <%= customer.getBonus()%>){
+                    if (usedBonus >= 0 && usedBonus <= <%= customer.getBonus()%>){
 
                     $("#total_fee").text(<%= cart.getTotalAmount()%> - usedBonus + pType.fee + sType.fee);
                     } else{
