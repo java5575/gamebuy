@@ -69,48 +69,18 @@ and open the template in the editor.
             </div>            
             <div id="MAIN">
                 <ul id="tabMenu">
-                    <li><a href="#" id="TAB1">數位遊戲 </a></li>
-                    <li><a href="#" id="TAB2">PlayStation4</a></li>
-                    <li><a href="#" id="TAB3">Xbox</a></li>
-                    <li><a href="#" id="TAB4">PlayStation3</a></li>
-                    <li><a href="#" id="TAB5">Wii U</a></li>
-                    <li><a href="#" id="TAB6">個人電腦</a></li>
+                    <li><a href="#" id="TAB1" class="NOWTAB">PlayStation4</a></li>
+                    <li><a href="#" id="TAB2">Xbox</a></li>
+                    <li><a href="#" id="TAB3">PlayStation3</a></li>
+                    <li><a href="#" id="TAB4">Wii U</a></li>
+                    <li><a href="#" id="TAB5">個人電腦</a></li>
                 </ul>                
-                <div class="BOXS" id="BOX1">
+
+                <div class="BOXS" id="BOX1"> 
                     <%
-                        ProductService service = new ProductService();
+                                ProductService service = new ProductService();
                         List<Product> list = null;
                         String search = request.getParameter("search");
-                        if (search != null && search.matches("\\d+")) {
-                            int id = Integer.parseInt(search);
-                            Product p = service.get(id);
-                            list = new ArrayList<>();
-                            list.add(p);
-                        } else if (search != null) {
-                            list = service.getByName(search);
-                        } else {
-                            list = service.getPlatForm(0);
-                        }
-                        if (list != null && list.size() > 0) {
-                    %>
-                    <ul>
-                        <%for (Product p : list) {%>
-                        <li class="product_list">
-
-                            <a href="product.jsp?pid=<%=p.getId()%>">
-                                <img src='<%= p.getUrl()%>'>
-
-                                <h3><%=p.getName()%></h3>
-
-                                <p>售價:<%= p.getUnitPrice()%></p>
-                            </a>
-                        </li>
-                        <%}%>
-                    </ul>
-                    <%}%>
-                </div>
-                <div class="BOXS" id="BOX2"> 
-                    <%
                         if (search != null && search.matches("\\d+")) {
                             int id = Integer.parseInt(search);
                             Product p = service.get(id);
@@ -138,7 +108,7 @@ and open the template in the editor.
                     </ul>
                     <%}%>
                 </div>
-                <div class="BOXS" id="BOX3"> 
+                <div class="BOXS" id="BOX2"> 
                     <%
                         if (search != null && search.matches("\\d+")) {
                             int id = Integer.parseInt(search);
@@ -167,7 +137,7 @@ and open the template in the editor.
                     </ul>
                     <%}%>
                 </div>
-                <div class="BOXS" id="BOX4"> 
+                <div class="BOXS" id="BOX3"> 
                     <%
                         if (search != null && search.matches("\\d+")) {
                             int id = Integer.parseInt(search);
@@ -196,10 +166,10 @@ and open the template in the editor.
                     </ul>
                     <%}%>
                 </div>
-                <div class="BOXS" id="BOX5"> 
+                <div class="BOXS" id="BOX4"> 
                     <p>BOX5</p>
                 </div>
-                <div class="BOXS" id="BOX6"> 
+                <div class="BOXS" id="BOX5"> 
                     <p>BOX6</p>
                 </div>
 

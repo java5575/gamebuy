@@ -91,25 +91,14 @@
                         <%}%>
                     </tbody>
                     <tfoot>
-                        <tr>
-                            <td colspan="7" style="text-align: right">
-<<<<<<< HEAD
-
-=======
-                                
->>>>>>> origin/master
-                                您有<%= customer.getBonus()%>點紅利,本次抵用:
-                                <input type="number" name="used_bonus">點
-                            </td>
-                        </tr>
+                        
                         <tr>
                             <td colspan="7" style="text-align: right">
                                 付款金額:
-<<<<<<< HEAD
-                            </td>
-=======
                           </td>
->>>>>>> origin/master
+
+                          </td>
+
                             <td><%= cart.getTotalAmount()%></td>
                         </tr>
                         <tr>

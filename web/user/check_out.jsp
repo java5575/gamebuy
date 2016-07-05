@@ -72,17 +72,20 @@
                                 </select>
                             </td>
                         </tr>
+         
                         <tr>
                             <td colspan="3" style="text-align: right">
-                                含其他費用之總金額:
+                                您有<%= customer.getBonus()%>紅利點數，本次使用
+                                <input type="number" name="used_bonus" value="100">
+                                點紅利
                             </td>
-                            <td><h3 id="total_fee"><%= cart.getTotalAmount()%></h3></td>
-                        </tr>
-                        <tr>
+                         </tr>
+                         <tr>
                             <td colspan="3" style="text-align: right">
-                                含其他費用之總金額(扣掉使用紅利後):
+                                付款總金額(扣除紅利後):
                             </td>
-                            <%-- int bouns = request.getParameter("used_bonus") != null && request.getParameter("used_bonus").matches("\\d+") ? Integer.parseInt(request.getParameter("used_bonus")) : 0;--%>
+                            <% int bouns = request.getParameter("used_bonus") != null && request.getParameter("used_bonus").matches("\\d+") ? Integer.parseInt(request.getParameter("used_bonus")) : 0;%>
+                            
                             <td><h3 id="total_fee"><%= cart.getTotalAmount()%></h3></td>
                         </tr>
                     </tfoot>
@@ -160,7 +163,7 @@
                 if (pTypeIndex >= 0 && sTypeIndex >= 0){
                 var pType = payment_type_array[pTypeIndex];
                 var sType = shipping_type_array[sTypeIndex];
-                $("#total_fee").text(<%= cart.getTotalAmount()%> + pType.fee + sType.fee);
+                $("#total_fee").text(<%= cart.getTotalAmount()%> + pType.fee + sType.fee - <%= request.getParameter("used_bonus")%>);
                 }
                 }
                     function copyData() {
