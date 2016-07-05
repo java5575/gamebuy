@@ -10,12 +10,42 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" info="管理購物車"%>
 <!DOCTYPE html>
 <html>
+    
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="css/indexandfooter.css" rel="stylesheet" type="text/css"/>
+        <link href="css/cart.css" rel="stylesheet" type="text/css"/>
         <title>管理購物車</title>
+        
     </head>
     <body>
-        <div id="article">
+        <div class ="header_outside">
+            <div class="header">
+                <a href="index.jsp"><img class="logo" src="images/logo2.png" alt=""/></a>
+                <div class="memberlist">
+                    <%Customer customer = (Customer) session.getAttribute("customer");
+                        if (customer == null) {
+
+                    %>
+
+                    <a href="${pageContext.request.contextPath}/login.jsp">登入</a>|
+                    <a href="${pageContext.request.contextPath}/register.jsp">註冊</a>
+                    <%} else {%>
+                    <a href="${pageContext.request.contextPath}/cart.jsp"><img src="images/shoppingcar.png"/></a>
+                    <a href="${pageContext.request.contextPath}/user/update.jsp">修改會員資料</a>|
+                    <a href="${pageContext.request.contextPath}/logout.do">登出</a>
+                    <span><%= customer != null ? customer.getName() + "你好" : ""%></span>
+
+                    <%}%>
+
+                </div>
+                <form>
+                    <input type="search" name="search" placeholder="請輸入關鍵字"/>
+                    <input type="submit" value="">
+                </form>
+            </div>
+        </div>
+        <div class="wrapper">
             <form method="POST" action="update_cart.do">
                 <%
                     ShoppingCart cart
@@ -24,21 +54,21 @@
                 %>
                 <h3>購物車是空的</h3>
                 <%} else {
-                        Customer customer = (Customer) session.getAttribute("customer");
-                         if(customer == null){
-                            response.sendRedirect(request.getContextPath()+"/login.jsp");
-                            return;
-                          }else if(customer != null && !customer.equals(cart.getUser())){
-                            cart.setUser(customer); 
-                        }
+
+                    if (customer == null) {
+                        response.sendRedirect(request.getContextPath() + "/login.jsp");
+                        return;
+                    } else if (customer != null && !customer.equals(cart.getUser())) {
+                        cart.setUser(customer);
+                    }
                 %>
-                
+
                 <table style="width: 80%; padding: 2px; margin: auto">
                     <thead>
                         <tr>
-                            <th>商品編號</th>
+                            <th>編號</th>
                             <th>平台</th>
-                            <th>商品名稱</th>
+                            <th>名稱</th>
                             <th>單價</th>
                             <th>數量</th>
                             <th>小計</th>
@@ -49,41 +79,44 @@
                     <tbody>
                         <% for (Product p : cart.keySet()) {%>
                         <tr>
-                            <th><%= p.getId()%></th>
+                            <td><%= p.getId()%></td>
                             <td><%= p.getPlatForm().getChName()%></td>
                             <td><h4><%= p.getName()%></h4></td>
                             <td><p><%= p.getUnitPrice()%></p></td>
-                            <th><input style="width: 5ex;" type="number" name="quantity_<%= p.getId()%>" min="1" value="<%= cart.getQuantity(p)%>"></th>
-                            <th><p><%= p.getUnitPrice()*cart.getQuantity(p)%></p></th>
-                            <th><input type="submit" value="更新" name="">
-                            <th><input type="submit" value="刪除" name="delete_<%= p.getId()%>"></th>
+                            <td><input type="number" class="quantity" name="quantity_<%= p.getId()%>" min="1" value="<%= cart.getQuantity(p)%>"></td>
+                            <td><p><%= p.getUnitPrice() * cart.getQuantity(p)%></p></td>
+                <td><input type="submit" value="更新" name=""></td>
+                            <td><input type="submit" value="刪除" name="delete_<%= p.getId()%>"></td>
                         </tr>
                         <%}%>
                     </tbody>
                     <tfoot>
                         <tr>
                             <td colspan="7" style="text-align: right">
-                                您有<%= cart.getUser().getBonus()%>點紅利,本次抵用:
-                                <input type="number" name="bonus">點 
+
+                                您有<%= customer.getBonus()%>點紅利,本次抵用:
+                                <input type="number" name="used_bonus">點
                             </td>
                         </tr>
                         <tr>
                             <td colspan="7" style="text-align: right">
                                 付款金額:
-                          </td>
-                           <%-- int bonus = Integer.parseInt(request.getParameter("bonus")); --%>
+                            </td>
                             <td><%= cart.getTotalAmount()%></td>
+                        </tr>
+                        <tr>
+                            <td><input type="button" value="繼續購物" onclick="location.href = 'index.jsp';"></td>
+                            <td><input type="button" value="前往結帳" onclick="location.href = 'user/check_out.jsp';"></td>
                         </tr>
                     </tfoot>
                 </table>
-                        <div style="float: left">
-                            <input type="button" value="繼續購物" onclick="location.href='index.jsp';">
-                        </div>
-                        <div style="float: right">
-                            <input type="button" value="前往結帳" onclick="location.href='user/check_out.jsp';">
-                        </div>
-                        <%}%>
+                <%}%>
             </form>
+        </div>
+        <div class="footwer_outside">
+            <div class="footer">
+                <p>Copy right by Caesar wang</p>
+            </div>
         </div>
     </body>
 </html>
