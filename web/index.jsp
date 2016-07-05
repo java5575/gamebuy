@@ -42,6 +42,7 @@ and open the template in the editor.
                     <%} else {%>
                     <a href="${pageContext.request.contextPath}/cart.jsp"><img src="images/shoppingcar.png"/></a>
                     <a href="${pageContext.request.contextPath}/user/update.jsp">修改會員資料</a>|
+                    <a href="${pageContext.request.contextPath}/user/orders_history.jsp">歷史訂單查詢</a>|
                     <a href="${pageContext.request.contextPath}/logout.do">登出</a>
                     <span><%= customer != null ? customer.getName() + "你好" : ""%></span>
 
