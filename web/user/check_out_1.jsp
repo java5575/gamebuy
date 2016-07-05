@@ -61,7 +61,7 @@
                             <td colspan="2">付款方式:
                                 <select style="width: 20ex" id="payment_type" name="paymentType" required onchange="changeHandler()">
                                     <option value="">請選擇...</option>
-                                    <% for (PaymentType pType : PaymentType.values()) {%>
+                                    <% for (PaymentType pType: PaymentType.values()){%>
                                     <option value="<%= pType.ordinal()%>"><%= pType.toString()%></option>
                                     <%}%>
                                 </select>
@@ -82,8 +82,8 @@
                             <td colspan="3" style="text-align: right">
                                 含其他費用之總金額(扣掉使用紅利後):
                             </td>
-                            <%-- int bouns = request.getParameter("used_bonus") != null && request.getParameter("used_bonus").matches("\\d+") ? Integer.parseInt(request.getParameter("used_bonus")) : 0;--%>
-                            <td><h3 id="total_fee"><%= cart.getTotalAmount()%></h3></td>
+                            <% int bouns = request.getParameter("used_bonus") != null && request.getParameter("used_bonus").matches("\\d+") ? Integer.parseInt(request.getParameter("used_bonus")) : 0;%>
+                            <td><h3 id="total_fee"><%= cart.getTotalAmount() - bouns%></h3></td>
                         </tr>
                     </tfoot>
                     <body>
@@ -123,51 +123,54 @@
 //                        {name: "HOME", description: "宅配到府", fee: 70}
 //                    ];
                     var payment_type_array = [
-                    <% for (int i = 0; i < PaymentType.values().length; i++) {%>
-                    {fee:<%= PaymentType.values()[i].getFee()%>,
-                            shippingArray:[
-                    <%for (int j = 0; j < PaymentType.values()[i].getShippingArray().length; j++) {%>
-                    <%= PaymentType.values()[i].getShippingArray()[j].ordinal()%>
-                    <%= j < PaymentType.values()[i].getShippingArray().length - 1 ? "," : ""%>
-                    <%}%>
-                            ]
-                    }<%= i < PaymentType.values().length - 1 ? "," : ""%>
-                    <%}%>
+                        <% for(int i=0;i<PaymentType.values().length;i++){%>
+                                {fee:<%= PaymentType.values()[i].getFee()%>,
+                                    shippingArray:[
+                                        <%for(int j=0;j<PaymentType.values()[i].getShippingArray().length;j++){%>
+                                                    <%= PaymentType.values()[i].getShippingArray()[j].ordinal()%>
+                                                        <%= j<PaymentType.values()[i].getShippingArray().length-1?",":"" %>
+                                                             <%}%>
+                                    ]
+                                    }<%= i<PaymentType.values().length-1?",":""%>
+                                    <%}%>
                     ];
+                    
                     var shipping_type_array = [
-                    <% for (int i = 0; i < ShippingType.values().length; i++) {%>
-                    {description:"<%= ShippingType.values()[i]%>", fee:<%= ShippingType.values()[i].getFee()%>}
-                    <%= i < ShippingType.values().length - 1 ? "," : ""%>
-                    <%}%>
+                        <% for(int i=0;i<ShippingType.values().length;i++){%> 
+                        {description:"<%= ShippingType.values()[i]%>", fee:<%= ShippingType.values()[i].getFee()%>}
+                        <%= i<ShippingType.values().length-1?",":""%>
+                        <%}%>
                     ];
+
                     function changeHandler() {
-                    var pTypeIndex = $("#payment_type").val();
-                    var shArray = payment_type_array[pTypeIndex].shippingArray;
-                    $("#shipping_type").empty();
-                    $("#shipping_type").append("<option value=''>請選擇...</option>");
-                              for (i = 0; i < shArray.length; i++){
-                     var sTypeIndex = shArray[i];
-                    var optInfo = "<option value='" + sTypeIndex + "'>"
-                            + shipping_type_array[sTypeIndex].description + "</option>";
-                    console.log(optInfo);
-                    $("#shipping_type").append(optInfo);
-                    }
+                        var pTypeIndex = $("#payment_type").val();
+                        var shArray = payment_type_array[pTypeIndex].shippingArray;
+                        $("#shipping_type").empty();
+                        $("#shipping_type").append("<option value=''>請選擇...</option>");
+                        for (i = 0; i < shArray.length; i++) {
+                            var sTypeIndex = shArray[i];
+                            var optInfo = "<option value=" + sTypeIndex + "'>"
+                                    + shipping_type_array[sTypeIndex].description + "</option>";
+                            $("#shipping_type").append(optInfo);
+                        }
                     }
 
-                 function calculateAmountHandler(){
-                var pTypeIndex = $("#payment_type").val();
-                var sTypeIndex = $("#shipping_type").val();
-                if (pTypeIndex >= 0 && sTypeIndex >= 0){
-                var pType = payment_type_array[pTypeIndex];
-                var sType = shipping_type_array[sTypeIndex];
-                $("#total_fee").text(<%= cart.getTotalAmount()%> + pType.fee + sType.fee);
-                }
-                }
+                    function calculateAmountHandler() {
+                        var pTypeIndex = $("#payment_type").val();
+                        console.log(pTypeIndex)
+                        var sTypeIndex = $("#shipping_type").val();
+                        if (pTypeIndex >= 0 && sTypeIndex >= 0) {
+                            var pType = payment_type_array[pTypeIndex];
+                            var sType = shipping_type_array[sTypeIndex];
+                            $("#total_fee").text(<%= cart.getTotalAmount()%> + pType.fee + sType.fee);
+                        }
+                    }
+
                     function copyData() {
-                    $("#receiver_name").val($("#name").val());
-                    $("#receiver_email").val($("#email").val());
-                    $("#receiver_address").val($("#address").val());
-                    $("#receiver_phone").val($("#phone").val());
+                        $("#receiver_name").val($("#name").val());
+                        $("#receiver_email").val($("#email").val());
+                        $("#receiver_address").val($("#address").val());
+                        $("#receiver_phone").val($("#phone").val());
                     }
                 </script>
         </div><br>

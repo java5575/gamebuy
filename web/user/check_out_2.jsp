@@ -59,15 +59,17 @@
                         </tr>
                         <tr>
                             <td colspan="2">付款方式:
-                                <select style="width: 20ex" id="payment_type" name="paymentType" required onchange="changeHandler()">
+                                <select style="width: 120px" id="payment_type" name="paymentType" required onchange="changeHandler()">
                                     <option value="">請選擇...</option>
-                                    <% for (PaymentType pType : PaymentType.values()) {%>
-                                    <option value="<%= pType.ordinal()%>"><%= pType.toString()%></option>
-                                    <%}%>
+                                    <option value="0">ATM轉帳</option>
+                                    <option value="1">便利商店付款</option>
+                                    <option value="2">貨到付款</option>
+                                    <option value="3">信用卡付款</option>
+
                                 </select>
                             </td>
                             <td colspan="2">貨運方式:
-                                <select style="width:20ex" id="shipping_type" name="shippingType" required onchange="calculateAmountHandler()">
+                                <select style="width:120px" id="shipping_type" name="shippingType" required onchange="calculateAmountHandler()">
                                     <option value="">請選擇...</option>
                                 </select>
                             </td>
@@ -82,8 +84,8 @@
                             <td colspan="3" style="text-align: right">
                                 含其他費用之總金額(扣掉使用紅利後):
                             </td>
-                            <%-- int bouns = request.getParameter("used_bonus") != null && request.getParameter("used_bonus").matches("\\d+") ? Integer.parseInt(request.getParameter("used_bonus")) : 0;--%>
-                            <td><h3 id="total_fee"><%= cart.getTotalAmount()%></h3></td>
+                            <% int bouns = request.getParameter("used_bonus") != null && request.getParameter("used_bonus").matches("\\d+") ? Integer.parseInt(request.getParameter("used_bonus")) : 0;%>
+                            <td><h3 id="total_fee"><%= cart.getTotalAmount() - bouns%></h3></td>
                         </tr>
                     </tfoot>
                     <body>
@@ -111,63 +113,47 @@
                     </fieldset>
                 </div>
                 <script>
-//                    var payment_array = [
-//                        {name: "ATM", description: "ATM轉帳", fee: 0, shippingArray: [0, 1]},
-//                        {name: "STORE", description: "便利商店付款", fee: 60, shippingArray: [0, 1]},
-//                        {name: "HOME", description: "貨到付款", fee: 100, shippingArray: [1]},
-//                        {name: "CREDITCARD", description: "信用卡付款", fee: 0, shippingArray: [0, 1]}
-//                    ];
-//
-//                    var shipping_array = [
-//                        {name: "STORE", description: "便利商店取貨", fee: 60},
-//                        {name: "HOME", description: "宅配到府", fee: 70}
-//                    ];
-                    var payment_type_array = [
-                    <% for (int i = 0; i < PaymentType.values().length; i++) {%>
-                    {fee:<%= PaymentType.values()[i].getFee()%>,
-                            shippingArray:[
-                    <%for (int j = 0; j < PaymentType.values()[i].getShippingArray().length; j++) {%>
-                    <%= PaymentType.values()[i].getShippingArray()[j].ordinal()%>
-                    <%= j < PaymentType.values()[i].getShippingArray().length - 1 ? "," : ""%>
-                    <%}%>
-                            ]
-                    }<%= i < PaymentType.values().length - 1 ? "," : ""%>
-                    <%}%>
+                    var payment_array = [
+                        {name: "ATM", description: "ATM轉帳", fee: 0, shippingArray: [0, 1]},
+                        {name: "STORE", description: "便利商店付款", fee: 60, shippingArray: [0, 1]},
+                        {name: "HOME", description: "貨到付款", fee: 100, shippingArray: [1]},
+                        {name: "CREDITCARD", description: "信用卡付款", fee: 0, shippingArray: [0, 1]}
                     ];
-                    var shipping_type_array = [
-                    <% for (int i = 0; i < ShippingType.values().length; i++) {%>
-                    {description:"<%= ShippingType.values()[i]%>", fee:<%= ShippingType.values()[i].getFee()%>}
-                    <%= i < ShippingType.values().length - 1 ? "," : ""%>
-                    <%}%>
+
+                    var shipping_array = [
+                        {name: "STORE", description: "便利商店取貨", fee: 60},
+                        {name: "HOME", description: "宅配到府", fee: 70}
                     ];
+
                     function changeHandler() {
-                    var pTypeIndex = $("#payment_type").val();
-                    var shArray = payment_type_array[pTypeIndex].shippingArray;
-                    $("#shipping_type").empty();
-                    $("#shipping_type").append("<option value=''>請選擇...</option>");
-                              for (i = 0; i < shArray.length; i++){
-                     var sTypeIndex = shArray[i];
-                    var optInfo = "<option value='" + sTypeIndex + "'>"
-                            + shipping_type_array[sTypeIndex].description + "</option>";
-                    console.log(optInfo);
-                    $("#shipping_type").append(optInfo);
-                    }
+                        var pTypeIndex = $("#payment_type").val();
+                        var shArray = payment_array[pTypeIndex].shippingArray;
+                        $("#shipping_type").empty();
+                        $("#shipping_type").append("<option value=''>請選擇...</option>");
+                        for (i = 0; i < shArray.length; i++) {
+                            var sTypeIndex = shArray[i];
+                            var optInfo = "<option value=" + sTypeIndex + "'>"
+                                    + shipping_array[sTypeIndex].description + "</option>";
+                            $("#shipping_type").append(optInfo);
+                        }
                     }
 
-                 function calculateAmountHandler(){
-                var pTypeIndex = $("#payment_type").val();
-                var sTypeIndex = $("#shipping_type").val();
-                if (pTypeIndex >= 0 && sTypeIndex >= 0){
-                var pType = payment_type_array[pTypeIndex];
-                var sType = shipping_type_array[sTypeIndex];
-                $("#total_fee").text(<%= cart.getTotalAmount()%> + pType.fee + sType.fee);
-                }
-                }
+                    function calculateAmountHandler() {
+                        var pTypeIndex = $("#payment_type").val();
+                        console.log(pTypeIndex)
+                        var sTypeIndex = $("#shipping_type").val();
+                        if (pTypeIndex >= 0 && sTypeIndex >= 0) {
+                            var pType = payment_type_array[pTypeIndex];
+                            var sType = shipping_type_array[sTypeIndex];
+                            $("#total_fee").text(<%= cart.getTotalAmount()%> + pType.fee + sType.fee);
+                        }
+                    }
+
                     function copyData() {
-                    $("#receiver_name").val($("#name").val());
-                    $("#receiver_email").val($("#email").val());
-                    $("#receiver_address").val($("#address").val());
-                    $("#receiver_phone").val($("#phone").val());
+                        $("#receiver_name").val($("#name").val());
+                        $("#receiver_email").val($("#email").val());
+                        $("#receiver_address").val($("#address").val());
+                        $("#receiver_phone").val($("#phone").val());
                     }
                 </script>
         </div><br>
