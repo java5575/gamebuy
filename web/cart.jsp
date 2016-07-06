@@ -82,30 +82,25 @@
                             <td><%= p.getId()%></td>
                             <td><%= p.getPlatForm().getChName()%></td>
                             <td><h4><%= p.getName()%></h4></td>
-                            <td><p><%= p.getUnitPrice()%></p></td>
+                            <td><p><%= p.getPreferentialPrice()%></p></td>
                             <td><input type="number" class="quantity" name="quantity_<%= p.getId()%>" min="1" value="<%= cart.getQuantity(p)%>"></td>
-                            <td><p><%= p.getUnitPrice() * cart.getQuantity(p)%></p></td>
+                            <td><p><%= p.getPreferentialPrice() * cart.getQuantity(p)%></p></td>
                 <td><input type="submit" value="更新" class="update" name=""></td>
                             <td><input type="submit" class="delete" value="刪除" name="delete_<%= p.getId()%>"></td>
                         </tr>
                         <%}%>
                     </tbody>
                     <tfoot>
+                        <tr>
+                            <td colspan="8">
+                                <h3>獲得紅利:<%= cart.getTotalBonus()%>點</h3>
+                          </td>
+                        </tr>
                         
                         <tr>
-<<<<<<< HEAD
                             <td colspan="8">
-                                付款金額:<%= cart.getTotalAmount()%>元
+                                <h3>付款金額:<%= cart.getTotalAmount()%>元</h3>
                           </td>
-=======
-                            <td colspan="7" style="text-align: right">
-                                付款金額:
-                          </td>
-
-                          </td>
-
-                            <td><%= cart.getTotalAmount()%></td>
->>>>>>> origin/master
                         </tr>
                         <tr>
                             <td colspan="8"><input type="button" class="continu" value="繼續購物" onclick="location.href = 'index.jsp';"><input type="button" class="check_out" value="前往結帳" onclick="location.href = 'user/check_out.jsp';"></td>
