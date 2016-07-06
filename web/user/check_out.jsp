@@ -45,7 +45,7 @@
                         <tr>
                             <th><%= p.getId()%></th>
                             <td><%= p.getName()%></td>
-                            <td><%= p.getUnitPrice()%></td>
+                            <td><%= p.getPreferentialPrice()%></td>
                             <th><%= cart.getQuantity(p)%></th>
                         </tr>
                         <%}%>

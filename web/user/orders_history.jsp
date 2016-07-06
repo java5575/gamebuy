@@ -36,6 +36,7 @@
                         <th>貨運方式</th>
                         <th>訂單金額</th>
                         <th>使用紅利</th>
+                        <th>獲得紅利</th>
                         <th>處理狀態</th>
                         <th>檢視明細</th>
                     </tr>
@@ -49,6 +50,7 @@
                         <th><%= order.getShippingType()%></th>
                         <th><%= order.getTotalAmount()%></th>
                         <th><%= order.getBonus()%></th>
+                        <th><%= order.getTotalBonus()%></th>
                         <th><%= order.getStatus()%></th>
                         <th><td>檢視</td></th>
                     </tr>
