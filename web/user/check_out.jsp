@@ -12,6 +12,8 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script src="../js/jquery.js" type="text/javascript"></script>
+        <link href="../css/indexandfooter.css" rel="stylesheet" type="text/css"/>
+        <link href="../css/check_out.css" rel="stylesheet" type="text/css"/>
         <title>確認結帳</title>
         <%
             Customer customer = (Customer) session.getAttribute("customer");
@@ -22,7 +24,34 @@
         %>
     </head>
     <body>
-        <div id='article'>
+        <div class ="header_outside">
+            <div class="header">
+                <a href="index.jsp"><img class="logo" src="../images/logo2.png" alt=""/></a>
+                <div class="memberlist">
+                    <%
+                        if (customer == null) {
+
+                    %>
+
+                    <a href="${pageContext.request.contextPath}/login.jsp">登入</a>|
+                    <a href="${pageContext.request.contextPath}/register.jsp">註冊</a>
+                    <%} else {%>
+                    <a href="${pageContext.request.contextPath}/cart.jsp"><img src="../images/shoppingcar.png"/></a>
+                    <a href="${pageContext.request.contextPath}/user/update.jsp">修改會員資料</a>|
+                    <a href="${pageContext.request.contextPath}/user/orders_history.jsp">歷史訂單查詢</a>|
+                    <a href="${pageContext.request.contextPath}/logout.do">登出</a>
+                    <span><%= customer != null ? customer.getName() + "你好" : ""%></span>
+
+                    <%}%>
+
+                </div>
+                <form>
+                    <input type="search" name="search" placeholder="請輸入關鍵字"/>
+                    <input type="submit" value="">
+                </form>
+            </div>
+        </div>
+        <div class='wrapper'>
             <form method="POST" action="check_out.do">
                 <%
                     ShoppingCart cart
@@ -31,34 +60,31 @@
                 %>
                 <h3>購物車是空的</h3>
                 <%} else {%>
-                <table style='width: 80%;padding: 2px;margin: auto'>
+                <table>
                     <thead>
                         <tr>
                             <th>商品編號</th>
                             <th>商品名稱</th>
-                            <th>商品價格</th>
                             <th>商品數量</th>
+                            <th>商品價格</th>
+
                         </tr>
                     </thead>
                     <tbody>
                         <% for (Product p : cart.keySet()) {%>
                         <tr>
-                            <th><%= p.getId()%></th>
+                            <td><%= p.getId()%></td>
                             <td><%= p.getName()%></td>
+                            <td><%= cart.getQuantity(p)%></td>
                             <td><%= p.getUnitPrice()%></td>
-                            <th><%= cart.getQuantity(p)%></th>
+
                         </tr>
                         <%}%>
                     </tbody>
                     <tfoot>
+
                         <tr>
-                            <td colspan="3" style="text-align: right">
-                                商品總金額:
-                            </td>
-                            <td><%= cart.getTotalAmount()%></td>
-                        </tr>
-                        <tr>
-                            <td colspan="2">付款方式:
+                            <td colspan="4" style="text-align: right">付款方式:
                                 <select style="width: 20ex" id="payment_type" name="paymentType" required onchange="changeHandler()">
                                     <option value="">請選擇...</option>
                                     <% for (PaymentType pType : PaymentType.values()) {%>
@@ -66,7 +92,9 @@
                                     <%}%>
                                 </select>
                             </td>
-                            <td colspan="2">貨運方式:
+                        </tr>
+                        <tr>
+                            <td colspan="4" style="text-align: right">貨運方式:
                                 <select style="width:20ex" id="shipping_type" name="shippingType" required onchange="calculateAmountHandler()">
                                     <option value="">請選擇...</option>
                                 </select>
@@ -74,18 +102,18 @@
                         </tr>
 
                         <tr>
-                            <td colspan="3" style="text-align: right">
+                            <td colspan="4" style="text-align: right">
                                 您有<%= customer.getBonus()%>紅利點數，本次使用
                                 <input type="number" id="used_bonus" name="used_bonus"  onchange="changeAmountHandler()">
                                 點紅利
-                    <c:if test="${not empty requestScope.errors}">
 
-                        <c:forEach  var="msg" items="${requestScope.errors}" >
-                            <p>${msg}</p> 
-                        </c:forEach>
-
-                    </c:if>
                     </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" style="text-align: right">
+                            商品總金額:
+                        </td>
+                        <td><%= cart.getTotalAmount()%></td>
                     </tr>
                     <tr>
                         <td colspan="3" style="text-align: right">
@@ -98,7 +126,7 @@
                     </tfoot>
                     <body>
                 </table>
-                <div style="width: 50%;float: left">
+                <div class="shipper">
                     <fieldset>
                         <legend>訂貨人</legend>
                         <label for="name">姓名:</label><input id="name" value="${sessionScope.customer.name}" disabled><br>
@@ -107,7 +135,7 @@
                         <label for="phone">電話:</label><input id="phone" value="${customer.phone}" disabled><br>
                     </fieldset>
                 </div>
-                <div style="width: 50%;float: right">
+                <div class="receiver">
                     <fieldset>
                         <legend>收件人 <a href="javascript:copyData()">複製訂貨人</a></legend>
                         <label for="receiver_name">姓名: </label>
@@ -195,17 +223,21 @@
                     $("#receiver_phone").val($("#phone").val());
                     }
                 </script>
-        </div><br>
-        <div>
-            <div style="float:left">
-                <input type="button" value="繼續購物" onclick="location.href = 'index.jsp';">
-            </div>
-            <div style="float:right">
-                <input type="submit" value="確認結帳">
+
+                <div>
+                    <div>
+                        <input type="button" class="continu" value="繼續購物" onclick="location.href = 'index.jsp';">
+                         <input type="submit" class="check_ok" value="確認結帳">
+                       
+                    </div>
+                </div>
+                <%}%>
+            </form>
+        </div>
+        <div class="footwer_outside">
+            <div class="footer">
+                <p>Copy right by Caesar wang</p>
             </div>
         </div>
-        <%}%>
-    </form>
-</div>
-</body>
+    </body>
 </html>

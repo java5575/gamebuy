@@ -1,0 +1,84 @@
+.wrapper{
+    width: 850px;
+    margin: 80px auto 20px auto;
+    background-color: rgba(255,255,255,0.8);
+    padding: 20px;
+    box-shadow: 2px 2px 10px #000000;
+    border-radius: 20px;
+
+}
+.wrapper table{
+    width: 830px;
+    margin: 0px auto 20px auto;
+    border-radius: 20px 0px 20px 0px;
+}
+.wrapper table th{
+    background-color: #FF8800;
+    padding: 10px 0px;
+    border-bottom: 1px #000000 solid;
+    border-radius: 20px 0px 20px 0px;
+
+}
+.wrapper table td{
+    padding: 5px 0px;
+    text-align: center;
+}
+.wrapper table tbody td{
+    box-shadow: 2px 2px 10px #000000 inset;
+}
+.wrapper #used_bonus{
+    width: 100px;
+}
+.wrapper table tfoot{
+    background-color: #ffaa00;
+    border: 5px #000000 solid;
+}
+.shipper{
+    margin-bottom: 20px; 
+}
+fieldset{
+    padding: 10px;
+}
+
+.continu{
+    border: 1px #000000 solid;
+    position: relative;
+    width: 80px;
+    height: 25px;
+    border-radius: 5px;
+    background-color: white;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    border: 1px #000000 solid;
+}
+
+.continu:hover{
+    background-color: #ff8800;
+    width: 100px;
+    height: 30px;
+
+
+}
+.check_ok{
+    position: relative;
+    width: 80px;
+    height: 25px;
+    border-radius: 5px;
+    background-color: white;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    border: 1px #000000 solid;
+
+
+}
+
+.check_ok:hover{
+    background-color: #ff8800;
+    width: 100px;
+    height: 30px;
+
+
+}
+.receiver a{
+    text-decoration: none;
+}

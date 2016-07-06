@@ -18,10 +18,11 @@
         <script src="jquery-ui-1.11.4.custom/jquery-1.12.4.min.js"></script>
         <script src="js/slide.js" type="text/javascript"></script>
         <script src="js/tab.js" type="text/javascript"></script>
-        <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-        <link rel="stylesheet" href="http://jqueryui.com/resources/demos/style.css">
+        <link href="jquery-ui-1.11.4.custom/jquery-ui.css" rel="stylesheet" type="text/css"/>
         <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
         <script>
+                    
+            
             $(function () {
                 $("#dialog").dialog({
                     autoOpen: false,
