@@ -152,7 +152,8 @@
     width: 170px;
     height: 320px;
     text-decoration: none;
-    color: black;   
+    color: black;
+    outline: none;
 }
 .product_list a:hover{
     border: 1px #666666 solid;

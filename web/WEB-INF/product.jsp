@@ -17,6 +17,11 @@
                 font-size: 20px;
                 line-height: 20px; 
             }
+            #product_panel a{
+                font-size: 20px;
+                line-height: 20px;
+                outline: none;
+            }
             button{
                 width: 150px;
                 height: 40px;

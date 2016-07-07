@@ -1,7 +1,14 @@
+
+.wrapper_outside{
+    width:850px;
+    margin: 200px auto 50px auto;
+    
+}
+
 .wrapper{
     position: relative;
-    width: 850px;
-    margin: 200px auto 50px auto;
+    width: 0;
+    margin: 0;
     background-color: rgba(255,255,255,0.8);
     box-shadow: 2px 2px 5px #000000,4px 4px 8px #333333,5px 5px 10px #666666;
     border-radius: 20px;
@@ -14,6 +21,7 @@
 }
 .wrapper table thead th{
     border-bottom: 1px #000000 solid;
+    background-color: #ff8800;
 
 }
 
@@ -23,9 +31,15 @@
 .wrapper table tbody th,.wrapper table tbody td{
     min-width: 30px;
     text-align: center;
-    padding: 10px 0;
+    padding: 5px 5px;
 }
+.wrapper table tbody td{
+    box-shadow: 3px 3px 5px #000000;
 
+}
+.wrapper table tfoot td h3{
+    margin: 5px;
+}
 .quantity{
     width: 30px;
 
@@ -38,7 +52,7 @@
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.5s ease;
-      border: 1px #000000 solid;
+    border: 1px #000000 solid;
 }
 
 .update:hover{
@@ -73,7 +87,7 @@
     background-color: white;
     cursor: pointer;
     transition: background-color 0.5s ease;
-      border: 1px #000000 solid;
+    border: 1px #000000 solid;
 }
 
 .continu:hover{
@@ -88,7 +102,7 @@
     background-color: white;
     cursor: pointer;
     transition: all 0.5s ease;
-      border: 1px #000000 solid;
+    border: 1px #000000 solid;
 
 
 }
