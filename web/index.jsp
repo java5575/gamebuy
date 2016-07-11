@@ -213,6 +213,8 @@
         <div class="footwer_outside">
             <div class="footer">
                 <p>Copy right by Caesar wang</p>
+                <a class="contactus" href="contactUs.jsp">聯絡我們</a>
+                <a class="qanda" href="QandA.jsp">Q&A</a>
             </div>
         </div>
 
