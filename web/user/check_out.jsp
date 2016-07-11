@@ -75,14 +75,10 @@
                         <tr>
                             <td><%= p.getId()%></td>
                             <td><%= p.getName()%></td>
-<<<<<<< HEAD
                             <td><%= cart.getQuantity(p)%></td>
                             <td><%= p.getUnitPrice()%></td>
-
-=======
                             <td><%= p.getPreferentialPrice()%></td>
                             <th><%= cart.getQuantity(p)%></th>
->>>>>>> origin/master
                         </tr>
                         <%}%>
                     </tbody>
