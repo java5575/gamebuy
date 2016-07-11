@@ -57,7 +57,7 @@
                         <th><%= order.getTotalAmount()%></th>
                         <th><%= order.getBonus()%></th>
                         <th><%= order.getTotalBonus()%></th>
-                        <th><%= order.getStatus()%></th>
+                        <th><%= Status.values()[order.getStatus()].getDescription()%></th>
                         <th><a href="javascript: showOrder(<%= order.getId()%>)">檢視</a></th>
                         <td><%if (order.getStatus() == 0 && order.getPaymentType() == PaymentType.ATM) {%>        
                     <a href="send_paid.jsp?oid=<%= order.getId()%>">通知已轉帳</a>    
