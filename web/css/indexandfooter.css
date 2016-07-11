@@ -105,3 +105,80 @@ a img {
 
 
 }
+
+.footer .contactus{
+    position: absolute;
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    border-radius: 40px;
+    background-color: #FF8800;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    line-height: 80px;
+    font-size: 16px;
+    margin: 20px;
+    top:0;
+    right: 100px;
+    animation: myanimate1 2s infinite reverse;
+}
+.footer .contactus:hover{
+    animation-name: scale;
+    animation-duration: 4s;
+    animation-timing-function: ease-in-out;
+    animation-direction: normal;
+}
+.footer .qanda{
+    position: absolute;
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    border-radius: 40px;
+    background-color: #FF8800;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    line-height: 80px;
+    font-size: 16px;
+    margin: 20px;
+    top:0;
+    right: 0;
+    animation: myanimate 2s infinite;
+}
+.footer .qanda:hover{
+    animation-name: scale;
+    animation-duration: 4s;
+    animation-timing-function: ease-in-out;
+    animation-direction: normal;
+}
+
+@keyframes myanimate {
+    0%{top:0px;right:0px;}
+    12.5% {top:-5px;right:-5px;}
+    25%{top:-5px;right:0px;}
+    37.5%{top:-5px;right:5px;}
+    50%{top:0px;right:5px;}
+    62.5&{top:5px;right:5px;}
+    75%{top:5px;right:0px;}
+    87.5%{top:5px;right:-5px;}
+    100%{top:0px;right:0px;}
+}
+@keyframes myanimate1 {
+    0%{top:0px;right:100px;}
+    12.5% {top:-5px;right:95px;}
+    25%{top:-5px;right:100px;}
+    37.5%{top:-5px;right:105px;}
+    50%{top:0px;right:105px;}
+    62.5&{top:5px;right:105px;}
+    75%{top:5px;right:100px;}
+    87.5%{top:5px;right:95px;}
+    100%{top:0px;right:100px;}
+}
+
+@keyframes scale{
+    25% {transform: scale(1.4);} 
+    50% {transform: scale(1);}
+    75% { transform: scale(1.2);}
+}
+

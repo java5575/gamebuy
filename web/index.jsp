@@ -20,13 +20,18 @@
         <script src="js/tab.js" type="text/javascript"></script>
         <link href="jquery-ui-1.11.4.custom/jquery-ui.css" rel="stylesheet" type="text/css"/>
         <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+        <style>
+            #dialog{
+                background-color: #cccccc;
+            }
+        </style>
         <script>
                     
             
             $(function () {
                 $("#dialog").dialog({
                     autoOpen: false,
-                    width: 400,
+                    width: 300,
                     show: {effect: "slideDown", duration: 500},
                     hide: {effect: "slideUp", duration: 500},
                     position: {my: "left center", at: "center center", of: $(this)}
@@ -208,6 +213,8 @@
         <div class="footwer_outside">
             <div class="footer">
                 <p>Copy right by Caesar wang</p>
+                <a class="contactus" href="contactUs.jsp">聯絡我們</a>
+                <a class="qanda" href="QandA.jsp">Q&A</a>
             </div>
         </div>
 

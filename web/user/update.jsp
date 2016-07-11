@@ -61,9 +61,7 @@ and open the template in the editor.
                     <a href="${pageContext.request.contextPath}/user/update.jsp">修改會員資料</a>|
                     <a href="${pageContext.request.contextPath}/logout.do">登出</a>
                     <span><%= customer != null ? customer.getName() + "你好" : ""%></span>
-
                     <%}%>
-
                 </div>
                 <form>
                     <input type="search" name="search" placeholder="請輸入關鍵字"/>
@@ -74,7 +72,6 @@ and open the template in the editor.
         <div class="wrapper">
             <div id="middle">
                 <form method="POST" action="update.do">
-
                     <h1>會員修改</h1>
                     <p>
                         <label for="email">會員帳號：</label>

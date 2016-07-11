@@ -22,6 +22,12 @@
                 return;
             }
         %>
+        <script>
+            $(function(){
+//                $(".wrapper").animate({width:"850px"},1000);
+            $(".wrapper").slideDown(1500);
+            })
+        </script>
     </head>
     <body>
         <div class ="header_outside">
@@ -76,14 +82,11 @@
                             <td><%= p.getId()%></td>
                             <td><%= p.getName()%></td>
                             <td><%= cart.getQuantity(p)%></td>
-                            <td><%= p.getUnitPrice()%></td>
                             <td><%= p.getPreferentialPrice()%></td>
-                            <th><%= cart.getQuantity(p)%></th>
                         </tr>
                         <%}%>
                     </tbody>
                     <tfoot>
-
                         <tr>
                             <td colspan="4" style="text-align: right">付款方式:
                                 <select style="width: 20ex" id="payment_type" name="paymentType" required onchange="changeHandler()">
@@ -108,22 +111,22 @@
                                 <input type="number" id="used_bonus" name="used_bonus"  onchange="changeAmountHandler()">
                                 點紅利
 
-                    </td>
-                    </tr>
-                    <tr>
-                        <td colspan="3" style="text-align: right">
-                            商品總金額:
-                        </td>
-                        <td><%= cart.getTotalAmount()%></td>
-                    </tr>
-                    <tr>
-                        <td colspan="3" style="text-align: right">
-                            付款總金額(扣除紅利後):
-                        </td>
-                        <% int bouns = request.getParameter("used_bonus") != null && request.getParameter("used_bonus").matches("\\d+") ? Integer.parseInt(request.getParameter("used_bonus")) : 0;%>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" style="text-align: right">
+                                商品總金額:
+                            </td>
+                            <td><%= cart.getTotalAmount()%></td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" style="text-align: right">
+                                付款總金額(扣除紅利後):
+                            </td>
+                            <% int bouns = request.getParameter("used_bonus") != null && request.getParameter("used_bonus").matches("\\d+") ? Integer.parseInt(request.getParameter("used_bonus")) : 0;%>
 
-                        <td><h3 id="total_fee"><%= cart.getTotalAmount()%></h3></td>
-                    </tr>
+                            <td><h3 id="total_fee"><%= cart.getTotalAmount()%></h3></td>
+                        </tr>
                     </tfoot>
                     <body>
                 </table>
@@ -228,8 +231,8 @@
                 <div>
                     <div>
                         <input type="button" class="continu" value="繼續購物" onclick="location.href = 'index.jsp';">
-                         <input type="submit" class="check_ok" value="確認結帳">
-                       
+                        <input type="submit" class="check_ok" value="確認結帳">
+
                     </div>
                 </div>
                 <%}%>
