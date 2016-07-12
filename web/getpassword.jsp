@@ -1,3 +1,9 @@
+<%-- 
+    Document   : register
+    Created on : 2016/6/5, 下午 01:51:11
+    Author     : Administrator
+--%>
+
 <%@page import="java.util.List"%>
 <%@page import="gamebuy.gb.domain.Customer"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -6,17 +12,29 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="css/reset.css" rel="stylesheet" type="text/css"/>
-        <link href="css/login.css" rel="stylesheet" type="text/css"/>
+             <link href="css/register.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="jquery-ui-1.11.4.custom/jquery-ui.css">
+        <script src="jquery-ui-1.11.4.custom/jquery-1.12.4.min.js"></script>
+        <script src="jquery-ui-1.11.4.custom/jquery-ui.js"></script>
+   
         <link href="css/indexandfooter.css" rel="stylesheet" type="text/css"/>
         <link rel="shortcut icon" href="images/icon.ico"/>
         <link rel="bookmark" href="images/icon.ico"/>
-        <title>會員登入</title>
+        <title>忘記密碼</title>
+
         <script>
             function refreshHandler() {
                 var check_img = document.getElementById("check_code_image");
-                check_img.src = "images/check.jpg?get=" + new Date();
+                check_img.src = "images/registercheck.jpg?get=" + new Date();
             }
+            $(function () {
+                $("#datepicker").datepicker({
+                    dateFormat: "yy/mm/dd",
+                    changeMonth: true,
+                    changeYear: true
+                })
+
+            })
         </script>
     </head>
     <body>
@@ -48,24 +66,21 @@
         </div>
         <div class="wrapper">
             <div id="middle">
-                <form method="POST" action="login.do">
-                    <h1>會員登入</h1>
-
+                <form method="POST" action="get_password.do">
+                    <h1>忘記密碼</h1>
                     <p>
-                        <label>會員帳號：</label>
-                        <input type="text" id="email" name="email" placeholder="請輸入你的email" value="${param.id}" required>
+                        <label for="email">會員帳號：</label>
+                        <input type="text" id="email" name="email" placeholder="請輸入你的email" value="${param.email}" required>
                     </p>
                     <p>
-                        <label>會員密碼：</label>
-                        <input type="password" id="password" name="password" placeholder="請輸入你的密碼" required>
+                        <label for="name">會員姓名：</label>
+                        <input type="text" id="name" name="name" placeholder="請輸入你的姓名" value="${param.name}" required>
                     </p>
                     <p>
-                        <img src="images/check.jpg" id="check_code_image"><img class="changimg" src="images/changimg.png" onclick="refreshHandler()">
-                        <input type="text" id="check_code" name="checkcode" placeholder="請輸入驗證碼" value="<%= request.getMethod().equalsIgnoreCase("POST") ? request.getParameter("checkcode") : ""%>" required>
+                        <label for="id">身分證號：</label>
+                        <input type="text" id="id" name="id" placeholder="請輸入你的身分證號" required>
                     </p>
-                    <input class="loginbutton" type="submit" value="登入">
-                    <a href="${pageContext.request.contextPath}/getpassword.jsp"><input class="loginbutton"  value="忘記密碼"></a>
-                    
+                    <input class="registerbutton" type="submit" value="確認">
                     <c:if test="${not empty requestScope.errors}">
                         <ul>
                             <c:forEach  var="msg" items="${requestScope.errors}" >

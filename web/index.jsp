@@ -1,3 +1,4 @@
+<%@page import="gamebuy.gb.domain.PlatForm"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="gamebuy.gb.domain.Product"%>
 <%@page import="java.util.List"%>
@@ -107,7 +108,7 @@
 
                 <div class="BOXS" id="BOX1"> 
                     <%
-                                ProductService service = new ProductService();
+                        ProductService service = new ProductService();
                         List<Product> list = null;
                         String search = request.getParameter("search");
                         if (search != null && search.matches("\\d+")) {
@@ -118,7 +119,7 @@
                         } else if (search != null) {
                             list = service.getByName(search);
                         } else {
-                            list = service.getPlatForm(1);
+                            list = service.getPlatForm(PlatForm.PSFOUR.ordinal());
                         }
                         if (list != null && list.size() > 0) {
                     %>
@@ -138,7 +139,8 @@
                     <%}%>
                 </div>
                 <div class="BOXS" id="BOX2"> 
-                    <%
+                    <% 
+                        
                         if (search != null && search.matches("\\d+")) {
                             int id = Integer.parseInt(search);
                             Product p = service.get(id);
@@ -147,7 +149,7 @@
                         } else if (search != null) {
                             list = service.getByName(search);
                         } else {
-                            list = service.getPlatForm(2);
+                            list = service.getPlatForm(PlatForm.XBOX.ordinal());
                         }
                         if (list != null && list.size() > 0) {
                     %>
@@ -176,7 +178,7 @@
                         } else if (search != null) {
                             list = service.getByName(search);
                         } else {
-                            list = service.getPlatForm(3);
+                            list = service.getPlatForm(PlatForm.PSTHREE.ordinal());
                         }
                         if (list != null && list.size() > 0) {
                     %>
@@ -196,10 +198,63 @@
                     <%}%>
                 </div>
                 <div class="BOXS" id="BOX4"> 
-                    <p>BOX5</p>
+                    <%
+                       
+                        if (search != null && search.matches("\\d+")) {
+                            int id = Integer.parseInt(search);
+                            Product p = service.get(id);
+                            list = new ArrayList<>();
+                            list.add(p);
+                        } else if (search != null) {
+                            list = service.getByName(search);
+                        } else {
+                            list = service.getPlatForm(PlatForm.WII.ordinal());
+                        }
+                        if (list != null && list.size() > 0) {
+                    %>
+                    <ul>
+                        <%for (Product p : list) {%>
+                        <li class="product_list">
+
+                            <a href="javascript:getProduct(<%=p.getId()%>)">
+                                <img src='<%= p.getUrl()%>'>
+
+                                <h3><%=p.getName()%></h3>
+                                <p>售價:<%= p.getUnitPrice()%></p>
+                            </a>
+                        </li>
+                        <%}%>
+                    </ul>
+                    <%}%>
                 </div>
                 <div class="BOXS" id="BOX5"> 
-                    <p>BOX6</p>
+                    <%
+                        if (search != null && search.matches("\\d+")) {
+                            int id = Integer.parseInt(search);
+                            Product p = service.get(id);
+                            list = new ArrayList<>();
+                            list.add(p);
+                        } else if (search != null) {
+                            list = service.getByName(search);
+                        } else {
+                            list = service.getPlatForm(PlatForm.PC.ordinal());
+                        }
+                        if (list != null && list.size() > 0) {
+                    %>
+                    <ul>
+                        <%for (Product p : list) {%>
+                        <li class="product_list">
+
+                            <a href="javascript:getProduct(<%=p.getId()%>)">
+                                <img src='<%= p.getUrl()%>'>
+
+                                <h3><%=p.getName()%></h3>
+                                <p>售價:<%= p.getUnitPrice()%></p>
+                            </a>
+                        </li>
+                        <%}%>
+                    </ul>
+                    <%}%>
                 </div>
 
             </div>
