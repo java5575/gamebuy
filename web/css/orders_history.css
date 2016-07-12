@@ -1,0 +1,84 @@
+#article{
+    width: 1000px;
+    margin: 100px auto 20px auto;
+    background-color: rgba(255,255,255,0.8);
+    border-radius: 20px;
+    box-shadow: 2px 2px 5px #000000;
+    padding: 20px 0px;
+    animation: scale3 1s;
+}
+#article table{
+    width: 980px;
+    padding: 2px;
+    margin: 0 auto;
+}
+#article table thead th{
+    background-color: #ff8800;
+    padding:2px;
+}
+
+#article table tbody td{
+    box-shadow: 2px 2px 5px inset;
+    padding: 10px 3px;
+    text-align: center;
+}
+
+#article table tbody td a{
+    width: 40px;
+    height: 20px;
+    display: inline-block;
+    color:black;
+    text-decoration: none;
+    border-radius: 5px;
+    border: 1px #000000 solid;
+    padding:5px;
+    text-align: center;
+    line-height: 20px;
+    transition:all 1s;
+
+}
+#article table tbody td a:hover{
+    color:white;
+    background-color:#ff8800;
+    animation: scale 1s;
+
+}
+
+
+#article table tbody td a.pay{
+    width: 80px;
+    height: 20px;
+    display: inline-block;
+    color:black;
+    text-decoration: none;
+    border-radius: 5px;
+    border: 1px #000000 solid;
+    padding:5px;
+    text-align: center;
+    line-height: 20px;
+    transition:all 1s;
+}
+#article table tbody td a.pay:hover{
+    color:white;
+    background-color:#ff8800;
+    animation: scale2 1s;
+}
+
+
+
+
+@keyframes scale2{
+    0% {transform:scale(1,1);}
+    25% {transform:scale(2,2);}
+    50% {transform:scale(1,1);}
+    75% {transform:scale(1.5,1.5);}
+    100% {transform:scale(1,1);}
+
+}
+
+@keyframes scale3{
+    0% {transform:scale(1,1);}
+    50% {transform:scale(3,3);}
+    100% {transform:scale(1,1);}
+
+}

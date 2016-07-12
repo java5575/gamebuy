@@ -12,11 +12,11 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-             <link href="css/register.css" rel="stylesheet" type="text/css"/>
+        <link href="css/register.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="jquery-ui-1.11.4.custom/jquery-ui.css">
         <script src="jquery-ui-1.11.4.custom/jquery-1.12.4.min.js"></script>
         <script src="jquery-ui-1.11.4.custom/jquery-ui.js"></script>
-   
+
         <link href="css/indexandfooter.css" rel="stylesheet" type="text/css"/>
         <link rel="shortcut icon" href="images/icon.ico"/>
         <link rel="bookmark" href="images/icon.ico"/>
@@ -114,9 +114,14 @@
                     </c:if>
                 </form>
             </div>
+        </div>
+        <div class="footwer_outside">
             <div class="footer">
                 <p>Copy right by Caesar wang</p>
+                <a class="contactus" href="contactUs.jsp">聯絡我們</a>
+                <a class="qanda" href="QandA.jsp">Q&A</a>
             </div>
         </div>
+        <a href="#" class="go-top">TOP</a>   
     </body>
 </html>

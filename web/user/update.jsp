@@ -45,7 +45,7 @@ and open the template in the editor.
         </script>
     </head>
     <body>
-                <div class ="header_outside">
+        <div class ="header_outside">
             <div class="header">
                 <a href="../index.jsp"><img class="logo" src="../images/logo2.png" alt=""/></a>
                 <div class="memberlist">
@@ -57,7 +57,7 @@ and open the template in the editor.
                     <a href="${pageContext.request.contextPath}/login.jsp">登入</a>|
                     <a href="${pageContext.request.contextPath}/register.jsp">註冊</a>
                     <%} else {%>
-                    <a href="#"><img src="images/shoppingcar.png"/></a>
+                    <a href="#"><img src="../images/shoppingcar.png"/></a>
                     <a href="${pageContext.request.contextPath}/user/update.jsp">修改會員資料</a>|
                     <a href="${pageContext.request.contextPath}/logout.do">登出</a>
                     <span><%= customer != null ? customer.getName() + "你好" : ""%></span>
@@ -122,9 +122,15 @@ and open the template in the editor.
                     </ul>
                 </c:if>
             </div>
+
+        </div>
+        <div class="footwer_outside">
             <div class="footer">
                 <p>Copy right by Caesar wang</p>
+                <a class="contactus" href="contactUs.jsp">聯絡我們</a>
+                <a class="qanda" href="QandA.jsp">Q&A</a>
             </div>
         </div>
+        <a href="#" class="go-top">TOP</a>   
     </body>
 </html>

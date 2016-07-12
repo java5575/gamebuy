@@ -19,20 +19,49 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="shortcut icon" href="../images/icon.ico"/>
+        <link rel="bookmark" href="../images/icon.ico"/>
         <script src="../jquery-ui-1.11.4.custom/external/jquery/jquery.js" type="text/javascript"></script>
-        <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-        <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-        <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+        <link href="../jquery-ui-1.11.4.custom/jquery-ui.css" rel="stylesheet" type="text/css"/>
         <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+        <link href="../css/indexandfooter.css" rel="stylesheet" type="text/css"/>
+        <link href="../css/orders_history.css" rel="stylesheet" type="text/css"/>
         <title>查詢歷史訂單</title>
     </head>
     <body>
+        <div class ="header_outside">
+            <div class="header">
+                <a href="../index.jsp"><img class="logo" src="../images/logo2.png" alt=""/></a>
+                <div class="memberlist">
+                    <%Customer customer = (Customer) session.getAttribute("customer");
+                        if (customer == null) {
+
+                    %>
+
+                    <a href="${pageContext.request.contextPath}/login.jsp">登入</a>|
+                    <a href="${pageContext.request.contextPath}/register.jsp">註冊</a>
+                    <%} else {%>
+                    <a href="${pageContext.request.contextPath}/cart.jsp"><img src="../images/shoppingcar.png"/></a>
+                    <a href="${pageContext.request.contextPath}/user/update.jsp">修改會員資料</a>|
+                    <a href="${pageContext.request.contextPath}/user/orders_history.jsp">歷史訂單查詢</a>|
+                    <a href="${pageContext.request.contextPath}/logout.do">登出</a>
+                    <span><%= customer != null ? customer.getName() + "你好" : ""%></span>
+
+                    <%}%>
+
+                </div>
+                <form>
+                    <input type="search" name="search" placeholder="請輸入關鍵字"/>
+                    <input type="submit" value="">
+                </form>
+            </div>
+        </div>
         <div id="article">
             <%
                 OrderService service = new OrderService();
                 List<Order> list = service.getByCustomer(user.getEmail());
             %>
-            <table style='width: 80%;padding: 2px;margin: auto'>
+            <table>
                 <thead>
                     <tr>
                         <th>訂單編號</th>
@@ -50,19 +79,19 @@
                 <tbody>
                     <% for (Order order : list) {%>
                     <tr>
-                        <th><%= order.getId()%></th>
-                        <th><%= order.getCreatedTime()%></th>
-                        <th><%= order.getPaymentType()%></th>
-                        <th><%= order.getShippingType()%></th>
-                        <th><%= order.getTotalAmount()%></th>
-                        <th><%= order.getBonus()%></th>
-                        <th><%= order.getTotalBonus()%></th>
-                        <th><%= Status.values()[order.getStatus()].getDescription()%></th>
-                        <th><a href="javascript: showOrder(<%= order.getId()%>)">檢視</a></th>
+                        <td><%= order.getId()%></td>
+                        <td><%= order.getCreatedTime()%></td>
+                        <td><%= order.getPaymentType()%></td>
+                        <td><%= order.getShippingType()%></td>
+                        <td><%= order.getTotalAmount()%></td>
+                        <td><%= order.getBonus()%></td>
+                        <td><%= order.getTotalBonus()%></td>
+                        <td><%= order.getStatus()%></td>
+                        <td><a href="javascript: showOrder(<%= order.getId()%>)">檢視</a></td>
                         <td><%if (order.getStatus() == 0 && order.getPaymentType() == PaymentType.ATM) {%>        
-                    <a href="send_paid.jsp?oid=<%= order.getId()%>">通知已轉帳</a>    
-                    <%}%>
-                </td>
+                            <a class="pay" href="send_paid.jsp?oid=<%= order.getId()%>">通知已轉帳</a>    
+                            <%}%>
+                        </td>
                     </tr>
                     <%}%>
                 </tbody>
@@ -72,7 +101,7 @@
         <script>
             $(function () {
                 $("#detail").dialog({
-                    autoOpen: false, width: 500, height: 350,
+                    autoOpen: false, width: 600, height: 350,
                     show: {
                         effect: "blind",
                         duration: 500
@@ -103,5 +132,13 @@
                 );
             }
         </script>
+        <div class="footwer_outside">
+            <div class="footer">
+                <p>Copy right by Caesar wang</p>
+                <a class="contactus" href="contactUs.jsp">聯絡我們</a>
+                <a class="qanda" href="QandA.jsp">Q&A</a>
+            </div>
+        </div>
+        <a href="#" class="go-top">TOP</a>   
     </body>
 </html>
