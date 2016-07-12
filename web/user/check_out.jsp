@@ -32,7 +32,7 @@
     <body>
         <div class ="header_outside">
             <div class="header">
-                <a href="index.jsp"><img class="logo" src="../images/logo2.png" alt=""/></a>
+                <a href="../index.jsp"><img class="logo" src="../images/logo2.png" alt=""/></a>
                 <div class="memberlist">
                     <%
                         if (customer == null) {
@@ -108,7 +108,7 @@
                         <tr>
                             <td colspan="4" style="text-align: right">
                                 您有<%= customer.getBonus()%>紅利點數，本次使用
-                                <input type="number" id="used_bonus" name="used_bonus"  onchange="changeAmountHandler()">
+                                <input type="number" id="used_bonus" name="used_bonus"  onchange="changeAmountHandler()" min="0" value="0" required>
                                 點紅利
 
                             </td>
@@ -238,10 +238,15 @@
                 <%}%>
             </form>
         </div>
-        <div class="footwer_outside">
+
+          <div class="footwer_outside">
             <div class="footer">
                 <p>Copy right by Caesar wang</p>
+                <a class="contactus" href="contactUs.jsp">聯絡我們</a>
+                <a class="qanda" href="QandA.jsp">Q&A</a>
             </div>
         </div>
+        <a href="#" class="go-top">TOP</a>   
+
     </body>
 </html>

@@ -26,8 +26,8 @@
             }
         </style>
         <script>
-                    
-            
+
+
             $(function () {
                 $("#dialog").dialog({
                     autoOpen: false,
@@ -53,7 +53,19 @@
                 }
                 );
             }
+            $(window).scroll(function () {
+                var scrolltop = $(window).scrollTop();
+                if (scrolltop >= 500) {
+                    $(".go-top").fadeIn(800);
+                } else {
+                    $(".go-top").fadeOut(800);
+                }
 
+            })
+
+            $(".go-top").click(function () {
+                $("body").animate({scrollTop: 0}, 10000);
+            })
         </script>
     </head>
     <body>
@@ -107,7 +119,7 @@
 
                 <div class="BOXS" id="BOX1"> 
                     <%
-                                ProductService service = new ProductService();
+                        ProductService service = new ProductService();
                         List<Product> list = null;
                         String search = request.getParameter("search");
                         if (search != null && search.matches("\\d+")) {
@@ -217,6 +229,6 @@
                 <a class="qanda" href="QandA.jsp">Q&A</a>
             </div>
         </div>
-
+        <a href="#" class="go-top">TOP</a>      
     </body>
 </html>
