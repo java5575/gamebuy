@@ -11,6 +11,8 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="shortcut icon" href="../images/icon.ico"/>
+        <link rel="bookmark" href="../images/icon.ico"/>
         <script src="../js/jquery.js" type="text/javascript"></script>
         <link href="../css/indexandfooter.css" rel="stylesheet" type="text/css"/>
         <link href="../css/check_out.css" rel="stylesheet" type="text/css"/>
@@ -239,7 +241,7 @@
             </form>
         </div>
 
-          <div class="footwer_outside">
+        <div class="footwer_outside">
             <div class="footer">
                 <p>Copy right by Caesar wang</p>
                 <a class="contactus" href="contactUs.jsp">聯絡我們</a>
