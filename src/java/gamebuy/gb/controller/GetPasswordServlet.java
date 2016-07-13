@@ -69,7 +69,7 @@ public class GetPasswordServlet extends HttpServlet {
             }
         }
         request.setAttribute("errors", errors);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/Forgetpassword.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/getpassword.jsp");
         dispatcher.forward(request, response);
         
     }

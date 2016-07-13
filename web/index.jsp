@@ -1,3 +1,4 @@
+<%@page import="gamebuy.gb.domain.GameType"%>
 <%@page import="gamebuy.gb.domain.PlatForm"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="gamebuy.gb.domain.Product"%>
@@ -27,8 +28,6 @@
             }
         </style>
         <script>
-
-
             $(function () {
                 $("#dialog").dialog({
                     autoOpen: false,
@@ -67,6 +66,8 @@
             $(".go-top").click(function () {
                 $("body").animate({scrollTop: 0}, 10000);
             })
+            
+            
         </script>
     </head>
     <body>
@@ -123,6 +124,8 @@
                         ProductService service = new ProductService();
                         List<Product> list = null;
                         String search = request.getParameter("search");
+                        String gametype = request.getParameter("gametype");
+
                         if (search != null && search.matches("\\d+")) {
                             int id = Integer.parseInt(search);
                             Product p = service.get(id);
@@ -130,6 +133,12 @@
                             list.add(p);
                         } else if (search != null) {
                             list = service.getByName(search);
+                        } else if (gametype == GameType.SOFTWARE.getChName()) {
+                            list = service.getGametype(PlatForm.PSFOUR.ordinal(), GameType.SOFTWARE.ordinal());
+                        } else if (gametype == GameType.CHSOFTWARE.getChName()) {
+                            list = service.getGametype(PlatForm.PSFOUR.ordinal(), GameType.CHSOFTWARE.ordinal());
+                        } else if (gametype == GameType.RESTRICTED.getChName()) {
+                            list = service.getGametype(PlatForm.PSFOUR.ordinal(), GameType.RESTRICTED.ordinal());
                         } else {
                             list = service.getPlatForm(PlatForm.PSFOUR.ordinal());
                         }
@@ -151,8 +160,7 @@
                     <%}%>
                 </div>
                 <div class="BOXS" id="BOX2"> 
-                    <% 
-                        
+                    <%
                         if (search != null && search.matches("\\d+")) {
                             int id = Integer.parseInt(search);
                             Product p = service.get(id);
@@ -211,7 +219,6 @@
                 </div>
                 <div class="BOXS" id="BOX4"> 
                     <%
-                       
                         if (search != null && search.matches("\\d+")) {
                             int id = Integer.parseInt(search);
                             Product p = service.get(id);
@@ -268,12 +275,12 @@
                     </ul>
                     <%}%>
                 </div>
-
             </div>
-            <form id="subselect">
-                <p><input type="radio" id="radio1" name="radio" />遊戲軟體</p>
-                <p><input type="radio" id="radio2" name="radio" />中文化遊戲</p>
-                <p><input type="radio" id="radio3" name="radio" />限制級專區</p>
+            <form  id="subselect" name="gametype">
+                <p><label><input type="radio" id="radio0" name="gametype" value="" checked=""/>顯示所有</label></p>
+                <p><label><input type="radio" id="radio1" name="gametype" value="遊戲軟體"/>遊戲軟體</label></p>
+                <p><label><input type="radio" id="radio2" name="gametype" value="中文化遊戲軟體"/>中文化遊戲</label></p>
+                <p><label><input type="radio" id="radio3" name="gametype" value="限制級專區"/>限制級專區</label></p>
             </form>
             <div id="dialog" title="Detail"></div>  
         </div>

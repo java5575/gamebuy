@@ -65,7 +65,7 @@
                         <input type="text" id="check_code" name="checkcode" placeholder="請輸入驗證碼" value="<%= request.getMethod().equalsIgnoreCase("POST") ? request.getParameter("checkcode") : ""%>" required>
                     </p>
                     <input class="loginbutton" type="submit" value="登入">
-                    <a href="${pageContext.request.contextPath}/getpassword.jsp"><input class="loginbutton"  value="忘記密碼"></a>
+                    <a href="${pageContext.request.contextPath}/getpassword.jsp"><input class="loginbutton" value="忘記密碼"></a>
                     
                     <c:if test="${not empty requestScope.errors}">
                         <ul>
