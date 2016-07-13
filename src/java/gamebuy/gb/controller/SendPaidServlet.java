@@ -64,7 +64,7 @@ public class SendPaidServlet extends HttpServlet {
         String transDate = request.getParameter("transDate");
         if (transDate == null
                 || !(transDate = transDate.trim()).matches("2\\d{3}-((0[1-9])|(1[0-2]))-(([0-2][1-9])|(3[01]))")) {
-            errors.add("必須輸入格式正確的轉帳日期.");
+            errors.add("必須輸入格式正確的轉帳日期."+transDate);
         }
 
         String transTime = request.getParameter("transTime");
