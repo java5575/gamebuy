@@ -215,11 +215,6 @@
                 </div>
 
             </div>
-            <form id="subselect">
-                <p><input type="radio" id="radio1" name="radio" />遊戲軟體</p>
-                <p><input type="radio" id="radio2" name="radio" />中文化遊戲</p>
-                <p><input type="radio" id="radio3" name="radio" />限制級專區</p>
-            </form>
             <div id="dialog" title="Detail"></div>  
         </div>
         <div class="footwer_outside">
