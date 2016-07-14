@@ -23,97 +23,64 @@
             }
 %>
 <!DOCTYPE html>
-<<<<<<< HEAD
+
 <div style="font-size: smaller">
-    <p><b>訂單編號: <%= order.getId()%>, 訂購時間: <%= order.getCreatedTime()%>, 狀態: <%= Status.values()[order.getStatus()].getDescription()%></b></p>
-    <table style="width:100%">
-        <tr><th>No.</th><th>名稱.</th><th>價格</th><th>數量</th></tr>
-                <% for (OrderItem item : order.getOrderItemSet()) {%>
-        <tr><td><%= item.getProduct().getId()%></td>
-            <td><%= item.getProduct().getName()%></td>
-            <td><%= Product.priceFormat.format(item.getPrice())%></td>
-            <td><%= item.getQuantity()%></td></tr>
-            <%}%>
-        <tr><td colspan="5">
-                付款方式: <%= order.getPaymentType().getDesciption()%>-<%= order.getPaymentFee()%>,<br>
-                貨運方式: <%= order.getShippingType().getDesciption()%>-<%= order.getShippingFee()%>,
-                含運總額: $<%= order.getTotalAmount() + order.getShippingFee() + order.getPaymentFee()%> <%-- (免運下限: <%= order.MIN_TOTAL %>)--%>
-                <fieldset>
-                    <legend>收件人資料</legend>
-                    姓名: <%= order.getReceiverName()%><br>
-                    電郵: <%= order.getReceiverEmail()%><br>
-                    電話: <%= order.getReceiverPhone()%><br>
-                    地址: <%= order.getShippingAddress()%>
-                </fieldset>
-                <%if (order.getPaymentNote() != null) {%>
-                <fieldset>
-                    <legend>付款資料</legend>
-                    <%= order.getPaymentNote()%>
-                </fieldset>
-                <%}%>
-                <%if (order.getShippingNote() != null) {%>
-                <fieldset>
-                    <legend>貨運資料</legend>
-                    <%= order.getShippingNote()%>
-                </fieldset>
-                <%}%>
-=======
-<html>
-    <head>
-        <style>
-            table tr td{
-                padding:20px;
-            }
-            p{
-                padding:5px;
-            }
-        </style>
-    </head>
-    <body>
-        <div style="font-size: smaller">
-            <p><b>訂單編號: <%= order.getId()%>, 訂購時間: <%= order.getCreatedTime()%>, 狀態: <%= order.getStatus()%></b></p>
-            <table style="width:100%">
-                <tr><th>No.</th><th>名稱.</th><th>價格</th><th>數量</th></tr>
-                        <% for (OrderItem item : order.getOrderItemSet()) {%>
-                <tr><td><%= item.getProduct().getId()%></td>
-                    <td><%= item.getProduct().getName()%></td>
-                    <td><%= Product.priceFormat.format(item.getPrice())%></td>
-                    <td><%= item.getQuantity()%></td></tr>
-                    <%}%>
-                <tr><td colspan="5">
-                        <p>付款方式: <%= order.getPaymentType().getDesciption()%>-<%= order.getPaymentFee()%></p>
-                        <p>貨運方式: <%= order.getShippingType().getDesciption()%>-<%= order.getShippingFee()%></p>
-                        <p>含運總額: $<%= order.getTotalAmount() + order.getShippingFee() + order.getPaymentFee()%></p> <%-- (免運下限: <%= order.MIN_TOTAL %>)--%>
-                        <fieldset>
-                            <legend>收件人資料</legend>
-                            <p>姓名: <%= order.getReceiverName()%></p>
-                            <p>電郵: <%= order.getReceiverEmail()%></p>
-                            <p>電話: <%= order.getReceiverPhone()%></p>
-                            <p>地址: <%= order.getShippingAddress()%></p>
-                        </fieldset>
-                        <%if (order.getPaymentNote() != null) {%>
-                        <fieldset>
-                            <legend>付款資料</legend>
-                            <%= order.getPaymentNote()%>
-                        </fieldset>
-                        <%}%>
-                        <%if (order.getShippingNote() != null) {%>
-                        <fieldset>
-                            <legend>貨運資料</legend>
-                            <%= order.getShippingNote()%>
-                        </fieldset>
-                        <%}%>
->>>>>>> e7e7a793e4166121f945779d86c95de2c0e41d50
+        <html>
+            <head>
+                <style>
+                    table tr td{
+                        padding:20px;
+                    }
+                    p{
+                        padding:5px;
+                    }
+                </style>
+            </head>
+            <body>
+                <div style="font-size: smaller">
+                    <p><b>訂單編號: <%= order.getId()%>, 訂購時間: <%= order.getCreatedTime()%>, 狀態: <%= order.getStatus()%></b></p>
+                    <table style="width:100%">
+                        <tr><th>No.</th><th>名稱.</th><th>價格</th><th>數量</th></tr>
+                                <% for (OrderItem item : order.getOrderItemSet()) {%>
+                        <tr><td><%= item.getProduct().getId()%></td>
+                            <td><%= item.getProduct().getName()%></td>
+                            <td><%= Product.priceFormat.format(item.getPrice())%></td>
+                            <td><%= item.getQuantity()%></td></tr>
+                            <%}%>
+                        <tr><td colspan="5">
+                                <p>付款方式: <%= order.getPaymentType().getDesciption()%>-<%= order.getPaymentFee()%></p>
+                                <p>貨運方式: <%= order.getShippingType().getDesciption()%>-<%= order.getShippingFee()%></p>
+                                <p>含運總額: $<%= order.getTotalAmount() + order.getShippingFee() + order.getPaymentFee() - order.getBonus()%></p> <%-- (免運下限: <%= order.MIN_TOTAL %>)--%>
+                                <fieldset>
+                                    <legend>收件人資料</legend>
+                                    <p>姓名: <%= order.getReceiverName()%></p>
+                                    <p>電郵: <%= order.getReceiverEmail()%></p>
+                                    <p>電話: <%= order.getReceiverPhone()%></p>
+                                    <p>地址: <%= order.getShippingAddress()%></p>
+                                </fieldset>
+                                <%if (order.getPaymentNote() != null) {%>
+                                <fieldset>
+                                    <legend>付款資料</legend>
+                                    <%= order.getPaymentNote()%>
+                                </fieldset>
+                                <%}%>
+                                <%if (order.getShippingNote() != null) {%>
+                                <fieldset>
+                                    <legend>貨運資料</legend>
+                                    <%= order.getShippingNote()%>
+                                </fieldset>
+                                <%}%>
 
-                    </td></tr>  
-            </table>        
-        </div>
-        <%      return;
-} else { %>
-        <h5>查無訂單!</h5>
-        <%      } %>
-        <h5>查無訂單編號!</h5>
-        <%  }%>
 
-    </body>
-</html>
+                            </td></tr>  
+                    </table>        
+                </div>
+                <%      return;
+        } else { %>
+                <h5>查無訂單!</h5>
+                <%      } %>
+                <h5>查無訂單編號!</h5>
+                <%  }%>
+
+            </body>
+        </html>
