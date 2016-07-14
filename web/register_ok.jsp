@@ -52,7 +52,5 @@
             </h1>
             <img src="images/registerok.jpg">
         </div>
-            <audio src="audio/1428.mp3" autoplay>
-            </audio>
     </body>
 </html>

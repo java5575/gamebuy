@@ -18,6 +18,12 @@
                 check_img.src = "images/check.jpg?get=" + new Date();
             }
         </script>
+        <style>
+            .loginbutton{
+                text-align: center;
+                cursor: pointer;
+            }
+        </style>
     </head>
     <body>
         <div class ="header_outside">

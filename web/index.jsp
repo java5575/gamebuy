@@ -276,15 +276,6 @@
                     <%}%>
                 </div>
             </div>
-<<<<<<< HEAD
-=======
-            <form  id="subselect" name="gametype">
-                <p><label><input type="radio" id="radio0" name="gametype" value="" checked=""/>顯示所有</label></p>
-                <p><label><input type="radio" id="radio1" name="gametype" value="遊戲軟體"/>遊戲軟體</label></p>
-                <p><label><input type="radio" id="radio2" name="gametype" value="中文化遊戲軟體"/>中文化遊戲</label></p>
-                <p><label><input type="radio" id="radio3" name="gametype" value="限制級專區"/>限制級專區</label></p>
-            </form>
->>>>>>> origin/master
             <div id="dialog" title="Detail"></div>  
         </div>
         <div class="footwer_outside">
