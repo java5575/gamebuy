@@ -91,6 +91,12 @@ public class RegisterServlet extends HttpServlet {
                 RequestDispatcher dispacher = request.getRequestDispatcher("/register_ok.jsp");
                 dispacher.forward(request, response);
                 return;
+            }catch (GameBuyException ex) {
+                if (ex.getCause() != null) {
+                    errors.add(ex.toString() + ":" + ex.getCause().getMessage());
+                } else {
+                    errors.add(ex.toString());
+                }
             } catch (Exception ex) {
                 errors.add(ex.toString());
             }
