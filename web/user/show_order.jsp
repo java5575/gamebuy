@@ -23,7 +23,6 @@
             }
 %>
 <!DOCTYPE html>
-
 <div style="font-size: smaller">
         <html>
             <head>
@@ -70,8 +69,6 @@
                                     <%= order.getShippingNote()%>
                                 </fieldset>
                                 <%}%>
-
-
                             </td></tr>  
                     </table>        
                 </div>
