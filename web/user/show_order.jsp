@@ -37,7 +37,7 @@
             </head>
             <body>
                 <div style="font-size: smaller">
-                    <p><b>訂單編號: <%= order.getId()%>, 訂購時間: <%= order.getCreatedTime()%>, 狀態: <%= Status.values()[order.getStatus()].getDescription()%></b></p>
+                    <p><b>訂單編號: <%= order.getId()%>, 訂購時間: <%= order.getCreatedTime()%>, 狀態: <%=  Status.values()[order.getStatus()].getDescription()%></b></p>
                     <table style="width:100%">
                         <tr><th>No.</th><th>名稱.</th><th>價格</th><th>數量</th></tr>
                                 <% for (OrderItem item : order.getOrderItemSet()) {%>
