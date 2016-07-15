@@ -191,13 +191,7 @@
                 </div>
             </div>
             <div class="article">
-                <p class="title">Q14.當完成交易後想辦理退貨時，會退還已扣抵的紅利嗎？</p>
-                <div class="description">
-                    <p>Ans.當辦理退貨時，原本扣抵的紅利將待商品確實完成退貨程序後，即會自動如實歸還。而歸還紅利的時間點，將依完成退貨作業程序所需時程而定。</p>
-                </div>
-            </div>
-            <div class="article">
-                <p class="title">Q15.其他使用注意事項</p>
+                <p class="title">Q14.其他使用注意事項</p>
                 <div class="description">
                     <p>Ans.1. 紅利非屬玩家個人資產，玩家不得主張紅利所有權。
                         2. 若玩家個人帳號被停止GameBuy購物權限，即無法再繼續於GameBuy使用紅利扣抵。
@@ -206,7 +200,7 @@
                         5. GameBuy使用紅利相關辦法依GameBuy公告為主，GameBuy保留更改相關辦法之權利。</p>
                 </div>
             </div>        <div class="article">
-                <p class="title">Q16.若我對「GameBuy」有其它問題，該如何詢問？</p>
+                <p class="title">Q15.若我對「GameBuy」有其它問題，該如何詢問？</p>
                 <div class="description">
                     <p>Ans.若您有任何問題，可以用下列的方式與我們聯絡，我們將會儘快為您解決。</p>
                     <ul>
