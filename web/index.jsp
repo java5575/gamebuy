@@ -28,50 +28,53 @@
             }
         </style>
         <script>
-            $(function () {
-                $("#dialog").dialog({
-                    autoOpen: false,
-                    width: 300,
-                    show: {effect: "slideDown", duration: 500},
-                    hide: {effect: "slideUp", duration: 500},
-                    position: {my: "left center", at: "center center", of: $(this)}
+
+                $(function () {
+                    $("#dialog").dialog({
+                        autoOpen: false,
+                        width: 300,
+                        show: {effect: "slideDown", duration: 500},
+                        hide: {effect: "slideUp", duration: 500},
+                        position: {my: "left center", at: "center center", of: $(this)}
+
+                    });
+
 
                 });
 
-
-            });
-
-            function getProduct(pid) {
-                //alert(pid);
-                $.ajax({
-                    url: "product_pane.jsp",
-                    method: "POST",
-                    data: {'pid': pid}
-                }).done(function (result) {
-                    $("#dialog").html(result);
-                    $("#dialog").dialog("open");
+                function getProduct(pid) {
+                    //alert(pid);
+                    $.ajax({
+                        url: "product_pane.jsp",
+                        method: "POST",
+                        data: {'pid': pid}
+                    }).done(function (result) {
+                        $("#dialog").html(result);
+                        $("#dialog").dialog("open");
+                    }
+                    );
                 }
-                );
-            }
-            $(window).scroll(function () {
-                var scrolltop = $(window).scrollTop();
-                if (scrolltop >= 500) {
-                    $(".go-top").fadeIn(800);
-                } else {
-                    $(".go-top").fadeOut(800);
-                }
+                $(window).scroll(function () {
+                    var scrolltop = $(window).scrollTop();
+                    if (scrolltop >= 500) {
+                        $(".go-top").fadeIn(800);
+                    } else {
+                        $(".go-top").fadeOut(800);
+                    }
+
+                })
+            $(function () {
+                $(".go-top").click(function (event) {
+                    event.preventDefault();
+                    $("html,body").animate({scrollTop: 0});
+
+                })
 
             })
-
-            $(".go-top").click(function () {
-                $("body").animate({scrollTop: 0}, 10000);
-            })
-            
-            
         </script>
     </head>
     <body>
-        <div class ="header_outside">
+        <div class="header_outside">
             <div class="header">
                 <a href="index.jsp"><img class="logo" src="images/logo2.png" alt=""/></a>
                 <div class="memberlist">

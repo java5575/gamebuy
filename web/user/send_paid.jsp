@@ -22,8 +22,45 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>轉帳通知</title>
         <script src="../js/jquery.js" type="text/javascript"></script>
+        <link href="../css/indexandfooter.css" rel="stylesheet" type="text/css"/>
+        <style>
+            #article{
+                width: 300px;
+                background-color: rgba(255,255,255,0.5);
+                line-height: 30px;
+                margin: 200px auto 0 auto;
+            }
+        </style>
+
     </head>
     <body>
+        <div class="header_outside">
+            <div class="header">
+                <a href="index.jsp"><img class="logo" src="../images/logo2.png" alt=""/></a>
+                <div class="memberlist">
+                    <%Customer customer = (Customer) session.getAttribute("customer");
+                        if (customer == null) {
+
+                    %>
+
+                    <a href="${pageContext.request.contextPath}/login.jsp">登入</a>|
+                    <a href="${pageContext.request.contextPath}/register.jsp">註冊</a>
+                    <%} else {%>
+                    <a href="${pageContext.request.contextPath}/cart.jsp"><img src="../images/shoppingcar.png"/></a>
+                    <a href="${pageContext.request.contextPath}/user/update.jsp">修改會員資料</a>|
+                    <a href="${pageContext.request.contextPath}/user/orders_history.jsp">歷史訂單查詢</a>|
+                    <a href="${pageContext.request.contextPath}/logout.do">登出</a>
+                    <span><%= customer != null ? customer.getName() + "你好" : ""%></span>
+
+                    <%}%>
+
+                </div>
+                <form>
+                    <input type="search" name="search" placeholder="請輸入關鍵字"/>
+                    <input type="submit" value="">
+                </form>
+            </div>
+        </div>
         <%
             Customer user = (Customer) session.getAttribute("customer");
             if (user == null) {
@@ -103,5 +140,12 @@
         <p>此訂單無須通知已轉帳,如有問題請聯絡<a href="">客服中心</a></p>
         <%}
             }%>     
+        <div class="footwer_outside">
+            <div class="footer">
+                <p>Copy right by Caesar wang</p>
+                <a class="contactus" href="contactUs.jsp">聯絡我們</a>
+                <a class="qanda" href="QandA.jsp">Q&A</a>
+            </div>
+        </div>
     </body>
 </html>
